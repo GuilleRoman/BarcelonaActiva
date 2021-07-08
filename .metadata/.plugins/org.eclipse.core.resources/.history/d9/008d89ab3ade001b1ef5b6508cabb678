@@ -1,0 +1,22 @@
+package Nivel1;
+
+import java.util.HashMap;
+
+public class Fase2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap<String,Integer> precioPlatos= new HashMap<String, Integer>();
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("4 Fromaggi", 12);
+		precioPlatos.put("Pino Danielle", 18);
+		precioPlatos.put("Margherita", 9);
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("Buffalina", 12);
+		
+	}
+
+}

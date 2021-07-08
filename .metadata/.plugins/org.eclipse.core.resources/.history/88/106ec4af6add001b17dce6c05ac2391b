@@ -1,0 +1,11 @@
+package Nivel1;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char [] prueba= new char{'a','b','c','d','e','f'};
+		
+	
+
+}

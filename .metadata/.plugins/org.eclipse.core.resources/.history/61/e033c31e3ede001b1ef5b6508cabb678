@@ -1,0 +1,39 @@
+package Nivel1;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Fase2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int euro=1;
+		int dosE=2;
+		int cincoE=5;
+		int diezE=10;
+		int veinteE=20;
+		int cincuentaE=50;
+		int cienE=100;
+		int doscientosE=200;
+		int quinientosE=500;
+		String[] platos= new String[10];
+		int[] precios= new int[10];
+		HashMap<String,Integer> precioPlatos= new HashMap<String, Integer>();
+		precioPlatos.put("Buffalina", 12);
+		precioPlatos.put("4 Fromaggi", 12);
+		precioPlatos.put("Pino Danielle", 18);
+		precioPlatos.put("Margherita", 9);
+		precioPlatos.put("Prosciutto", 10);
+		precioPlatos.put("Parmiggiana", 11);
+		precioPlatos.put("Al Tonno", 13);
+		precioPlatos.put("Carbonara", 11);
+		precioPlatos.put("Massimo Troise", 17);
+		precioPlatos.put("Ortolana", 12);
+		int counter = 0;
+		for(Map.entry(String, Integer) entry:precioPlatos.entrySet()) {
+			platos[counter]= entry.getKey();
+		}
+		
+	}
+
+}
