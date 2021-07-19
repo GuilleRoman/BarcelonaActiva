@@ -9,12 +9,14 @@ public class EmployeeRepository {
 
 	private static List<AbsStaffMember> members=new ArrayList<>();
 	
+	
 	public EmployeeRepository(){
 		
 	}
 	
+	
 	public List<AbsStaffMember> getAllMembers(){
-		return new ArrayList<>(members);
+		return members;
 	}
 	
 	

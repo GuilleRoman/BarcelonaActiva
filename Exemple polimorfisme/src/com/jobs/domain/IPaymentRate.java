@@ -1,5 +1,5 @@
 package com.jobs.domain;
 
 public interface IPaymentRate {
-	public double pay(double salaryPerMonth);
+	public double pay(double salaryPerMonth) throws Exception;
 }
