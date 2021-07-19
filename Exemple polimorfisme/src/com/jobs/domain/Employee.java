@@ -6,7 +6,45 @@ public class Employee extends AbsStaffMember {
 	
 
 	protected  double salaryPerMonth;
-	protected IPaymentRate paymentRate;	
+	protected  double salaryNetoPerMonth;
+	protected  double salaryBrutoAnual;
+	protected  double salaryNetoAnual;
+	protected IPaymentRate paymentRate;
+	
+
+
+
+	public double getSalaryNetoPerMonth() {
+		return salaryNetoPerMonth;
+	}
+
+
+	public void setSalaryNetoPerMonth(double salaryNetoPerMonth) {
+		this.salaryNetoPerMonth = salaryNetoPerMonth;
+	}
+
+
+	public double getSalaryBrutoAnual() {
+		return salaryBrutoAnual;
+	}
+
+
+	public void setSalaryBrutoAnual(double salaryBrutoAnual) {
+		this.salaryBrutoAnual = salaryBrutoAnual;
+	}
+
+
+	public double getSalaryNetoAnual() {
+		return salaryNetoAnual;
+	}
+
+
+	public void setSalaryNetoAnual(double salaryNetoAnual) {
+		this.salaryNetoAnual = salaryNetoAnual;
+	}
+
+
+	
 	
 	public  double getSalaryPerMonth() {
 		return salaryPerMonth;
@@ -37,29 +75,40 @@ public class Employee extends AbsStaffMember {
 	}
 
 	public static class Junior extends Employee {
-		double salaryPerMonth = (super.salaryPerMonth)/1.1;
+		
 		public Junior(String name, String address, String phone, double salaryPerMonth, IPaymentRate paymentRate)
 				throws Exception {
 			super(name, address, phone, salaryPerMonth, paymentRate);
 			// TODO Auto-generated constructor stub
+			
+			this.salaryNetoPerMonth = salaryPerMonth-(2/salaryPerMonth*100);
+			this.salaryBrutoAnual= salaryPerMonth*12;
+			this.salaryNetoAnual=salaryNetoPerMonth*12; 
 		}
 		
 	}
 	public static class Mid extends Employee{
-		double salaryPerMonth = (super.salaryPerMonth)/1.5;
+		
 		public Mid(String name, String address, String phone, double salaryPerMonth, IPaymentRate paymentRate)
 				throws Exception {
 			super(name, address, phone, salaryPerMonth, paymentRate);
+			this.salaryNetoPerMonth = salaryPerMonth-(15/salaryPerMonth*100);
+			this.salaryBrutoAnual= salaryPerMonth*12;
+			this.salaryNetoAnual=salaryNetoPerMonth*12;
+			
 			// TODO Auto-generated constructor stub
 		}
 		
 	}
 	public static class Senior extends Employee{
-		double salaryPerMonth = (super.salaryPerMonth)/0.5;
+		
 		public Senior(String name, String address, String phone, double salaryPerMonth, IPaymentRate paymentRate)
 				throws Exception {
 			super(name, address, phone, salaryPerMonth, paymentRate);
 			// TODO Auto-generated constructor stub
+			this.salaryNetoPerMonth = salaryPerMonth-(24/salaryPerMonth*100);
+			this.salaryBrutoAnual= salaryPerMonth*12;
+			this.salaryNetoAnual=salaryNetoPerMonth*12;
 		}
 		
 	}

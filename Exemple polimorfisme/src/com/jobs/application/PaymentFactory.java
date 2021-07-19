@@ -30,7 +30,7 @@ public class PaymentFactory {
 			@Override
 			public double pay(double salaryPerMonth)throws Exception {
 				if(salaryPerMonth < 900 || salaryPerMonth > 1600) throw new Exception();
-					
+				
 				
 				double cantidad = salaryPerMonth*0.15;
 				return salaryPerMonth-cantidad; //to do 

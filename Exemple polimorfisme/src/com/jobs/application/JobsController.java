@@ -73,10 +73,12 @@ public class JobsController {
 					member=  member + "\n" + "Emp "+"[Name: " +
 					empleado.getName() + " Address: "+
 					empleado.getAddress()+" Phone: " + 
-					empleado.getPhone()+ " Salary per Month: " +
-					empleado.getSalaryPerMonth()+
-					 " Total Paid: "+ 
-					 empleado.getTotalPaid()+ "]";
+					empleado.getPhone()+ " Monthly Gross Salary: " +
+					empleado.getSalaryPerMonth()+" Total Paid: "+ 
+					empleado.getTotalPaid()+" Monthly Net Salary: "+
+					empleado.getSalaryNetoPerMonth()+" Annual Gross Salary: "+
+					empleado.getSalaryBrutoAnual() +" Annual Net Salary: " +
+					empleado.getSalaryNetoAnual()+"]";
 		}
 				for(Volunteer volunteer: volunteer1) {
 					member=  member + "\n" + "Vol "+ "[Name: " +
