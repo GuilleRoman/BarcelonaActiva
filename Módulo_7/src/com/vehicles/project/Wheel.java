@@ -11,9 +11,9 @@ public class Wheel {
 		this.diameter = diameter;
 	}
 	public Wheel() {
-		String brandInput = JOptionPane.showInputDialog(null, "Enter the brand");
+		String brandInput = JOptionPane.showInputDialog(null, "Enter wheel's brand");
 		this.brand = brandInput;
-		String diameterInput = JOptionPane.showInputDialog(null, "Enter the diameter.");
+		String diameterInput = JOptionPane.showInputDialog(null, "Enter wheel's diameter.");
 		this.diameter =  Double.parseDouble(diameterInput);
 	}
 	

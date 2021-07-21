@@ -10,11 +10,11 @@ public class Car extends Vehicle {
 		super(plate, brand, color);
 	}
 	public Car() {
-		String plateInput = JOptionPane.showInputDialog(null, "Enter the plate");
+		String plateInput = JOptionPane.showInputDialog(null, "Enter car's plate");
 		this.plate = plateInput;
-		String brandInput = JOptionPane.showInputDialog(null, "Enter the brand.");
+		String brandInput = JOptionPane.showInputDialog(null, "Enter car's brand.");
 		this.brand =  brandInput;
-		String colorInput = JOptionPane.showInputDialog(null, "Enter the color");
+		String colorInput = JOptionPane.showInputDialog(null, "Enter car's color");
 		this.color = colorInput;
 	}
 	

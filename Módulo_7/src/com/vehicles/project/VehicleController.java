@@ -13,16 +13,21 @@ public class VehicleController {
  			vehicles.add(car);
  		}
  		public void createFrontWheels() {
- 			Wheel wheel = new Wheel();
- 			Wheel wheel2 = new Wheel();
- 			frontWheels.add(wheel);
- 			frontWheels.add(wheel2);
+ 			Wheel frontWheel = new Wheel();
+ 			Wheel frontWheel2 = new Wheel();
+ 			frontWheels.add(frontWheel);
+ 			frontWheels.add(frontWheel2);
  			
  		}
  		public void createBackWheels() {
- 			Wheel wheel = new Wheel();
- 			Wheel wheel2 = new Wheel();
- 			backWheels.add(wheel);
- 			backWheels.add(wheel2);
+ 			Wheel backWheel = new Wheel();
+ 			Wheel backWheel2 = new Wheel();
+ 			backWheels.add(backWheel);
+ 			backWheels.add(backWheel2);
+ 		}
+ 		public void createWheels() throws Exception {
+ 			createFrontWheels();
+ 			createBackWheels();
+ 			Car.addWheels(frontWheels, backWheels);
  		}
 }
