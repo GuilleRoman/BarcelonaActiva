@@ -14,14 +14,14 @@ public class VehicleController {
  		}
  		public void createFrontWheels() {
  			Wheel frontWheel = new Wheel();
- 			Wheel frontWheel2 = new Wheel();
+ 			Wheel frontWheel2 = frontWheel;
  			frontWheels.add(frontWheel);
  			frontWheels.add(frontWheel2);
  			
  		}
  		public void createBackWheels() {
  			Wheel backWheel = new Wheel();
- 			Wheel backWheel2 = new Wheel();
+ 			Wheel backWheel2 = backWheel;
  			backWheels.add(backWheel);
  			backWheels.add(backWheel2);
  		}
