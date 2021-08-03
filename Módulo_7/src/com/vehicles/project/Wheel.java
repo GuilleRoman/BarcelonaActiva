@@ -10,11 +10,15 @@ public class Wheel {
 		this.brand = brand;
 		this.diameter = diameter;
 	}
-	public Wheel() {
+	//this method creates asks the user for the info while also checks that the diameter is correct.
+	public Wheel() throws Exception {
 		String brandInput = JOptionPane.showInputDialog(null, "Enter wheel's brand");
 		this.brand = brandInput;
 		String diameterInput = JOptionPane.showInputDialog(null, "Enter wheel's diameter.");
 		this.diameter =  Double.parseDouble(diameterInput);
+		double proveDiameter= this.diameter;
+		if(proveDiameter <0.4 || proveDiameter>4.0)
+			throw new Exception();
 	}
 	
 }

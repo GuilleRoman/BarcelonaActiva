@@ -9,9 +9,12 @@ public class Car extends Vehicle {
 	public Car(String plate, String brand, String color) {
 		super(plate, brand, color);
 	}
-	public Car() {
+	//This constructor allows to ask the user for the data needed, then makes some checks in the input.
+	public Car() throws Exception {
 		String plateInput = JOptionPane.showInputDialog(null, "Enter car's plate");
 		this.plate = plateInput;
+		if(!plateInput.matches("(^\\d{4})(\\w{2,3})"))
+		throw new Exception();
 		String brandInput = JOptionPane.showInputDialog(null, "Enter car's brand.");
 		this.brand =  brandInput;
 		String colorInput = JOptionPane.showInputDialog(null, "Enter car's color");
