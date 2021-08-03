@@ -16,6 +16,10 @@ public class VehicleController {
  			Bike bike = new Bike();
  			vehicles.add(bike);
  		}
+ 		public void createTruck() throws Exception {
+ 			Truck truck= new Truck();
+ 			vehicles.add(truck);
+ 		}
  		public void createFrontWheels() throws Exception {
  			Wheel frontWheel = new Wheel();
  			Wheel frontWheel2 = frontWheel;

@@ -21,18 +21,13 @@ public class Bike extends Vehicle {
 	}
 	public static void addWheels(List<Wheel> frontWheels) throws Exception {
 		addTwoWheels(frontWheels);
-	
 	}
 
 	public static void addTwoWheels(List<Wheel> wheels) throws Exception {
-		
-
 		Wheel frontWheel = wheels.get(0);
 		Wheel backWheel = wheels.get(1);
-
 		if (!frontWheel.equals(backWheel))
 			throw new Exception();
-
 		wheels.add(frontWheel);
 		wheels.add(backWheel);
 	}
