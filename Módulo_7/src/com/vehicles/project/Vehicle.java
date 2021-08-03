@@ -9,7 +9,15 @@ public abstract class Vehicle {
 	protected String brand;
 	protected String color;
 	protected List<Wheel> wheels = new ArrayList<Wheel>();
-
+	protected Vehicle_Owner owner;
+	public static ArrayList<Person> drivers= new ArrayList<Person>();
+	
+	
+	
+	public ArrayList<Person> getDrivers(){
+		return drivers;
+	}
+	
 	public String getPlate() {
 		return plate;
 	}

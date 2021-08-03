@@ -18,6 +18,18 @@ public class Car extends Vehicle {
 		this.brand =  brandInput;
 		String colorInput = JOptionPane.showInputDialog(null, "Enter car's color");
 		this.color = colorInput;
+		this.owner = (Vehicle_Owner)drivers.get(0);
+		//this.owner= new Vehicle_Owner();
+	//	drivers.add(owner);
+		boolean loop= true;
+		while(loop){
+			String moreDrivers = JOptionPane.showInputDialog(null, "¿Would you like to add more drivers for this vehicle? (yes/no)");
+			if(moreDrivers.matches("Yes")) {
+				People_Controller.createDriver();
+			}else {
+				loop=false;
+			}
+		}
 		
 	}
 	

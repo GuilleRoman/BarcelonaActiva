@@ -25,6 +25,7 @@ public class Vehicle_Owner extends Person {
 			}else {
 				this.garage = false;
 			}
+			Vehicle.drivers.add(this);
 	}
 	public String getName() {
 		return this.name;
