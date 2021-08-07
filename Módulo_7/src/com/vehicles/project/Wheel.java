@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Wheel {
 	private String brand;
 	private double diameter;
-
+	
 	public Wheel(String brand, double diameter) {
 		this.brand = brand;
 		this.diameter = diameter;
@@ -19,6 +19,7 @@ public class Wheel {
 		double proveDiameter= this.diameter;
 		if(proveDiameter <0.4 || proveDiameter>4.0)
 			throw new Exception();
+		
 	}
 	
 }

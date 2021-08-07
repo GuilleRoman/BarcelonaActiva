@@ -26,8 +26,9 @@ public class Car extends Vehicle {
 			String moreDrivers = JOptionPane.showInputDialog(null, "¿Would you like to add more drivers for this vehicle? (yes/no)");
 			if(moreDrivers.matches("Yes")) {
 				People_Controller.createDriver();
+				
 			}else {
-				loop=false;
+				break;
 			}
 		}
 		

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class VehicleController {
  
  public static ArrayList<Wheel> frontWheels = new ArrayList<Wheel>();
- public static ArrayList<Wheel> backWheels = new ArrayList<Wheel>();
+ public static ArrayList<Wheel> backWheels= new ArrayList<Wheel>();
  public static ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
  
  		public void createCar() throws Exception {
@@ -21,6 +21,7 @@ public class VehicleController {
  			vehicles.add(truck);
  		}
  		public void createFrontWheels() throws Exception {
+ 			
  			Wheel frontWheel = new Wheel();
  			Wheel frontWheel2 = frontWheel;
  			frontWheels.add(frontWheel);
@@ -28,12 +29,14 @@ public class VehicleController {
  			
  		}
  		public void createBackWheels() throws Exception {
+ 			
  			Wheel backWheel = new Wheel();
  			Wheel backWheel2 = backWheel;
  			backWheels.add(backWheel);
  			backWheels.add(backWheel2);
  		}
  		public void createWheelsForCar() throws Exception {
+ 			
  			createFrontWheels();
  			createBackWheels();
  			Car.addWheels(frontWheels, backWheels);
