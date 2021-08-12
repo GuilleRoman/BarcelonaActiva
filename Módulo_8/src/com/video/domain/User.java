@@ -48,6 +48,11 @@ public class User {
 		}
 		return lista;
 	}
+	public ArrayList<Video> getVideoStatus(){
+		for(Video v:myVideos) {
+			v.getTimeElapsed();
+		}return (ArrayList<Video>)myVideos;
+	}
 	
 
 	public void addVideo(Video e) {
