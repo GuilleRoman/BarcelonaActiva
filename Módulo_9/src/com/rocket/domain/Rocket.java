@@ -19,8 +19,13 @@ public class Rocket {
 	public void setNumPropulsores(int numPropulsores) {
 		this.numPropulsores = numPropulsores;
 	}
-	public ArrayList<Propulsores> getPropulsores() {
-		return propulsores;
+	public String getPropulsores() {
+		String propulsoresInfo="";
+		for (Propulsores p:propulsores) {
+			propulsoresInfo=propulsoresInfo+ " "+ p.potenciaMaxima;
+		}
+		
+		return "["+propulsoresInfo+"]";
 	}
 	public void setPropulsores(ArrayList<Propulsores> propulsores) {
 		this.propulsores = propulsores;
@@ -32,7 +37,7 @@ public class Rocket {
 			throw new Exception();
 		this.numPropulsores=n;
 		this.propulsores= new ArrayList<Propulsores>();
-		for(int i=0; i<=n;i++) {
+		for(int i=0; i<n;i++) {
 			Propulsores propulsor= new Propulsores();
 			this.propulsores.add(propulsor);
 		}
