@@ -14,7 +14,35 @@ public class Video {
 	private List<Tag> tags = new ArrayList<Tag>();
 	private String status;
 	final Timestamp dateUploaded = new Timestamp( System.currentTimeMillis());
+	private int duration;
+	private String statusPlay;
+	private int currentTime=0;
 	
+	
+	
+	
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int e) {
+		duration=e;
+	}
+	public int getCurrentTime() {
+		return currentTime;
+	}
+	public void setCurrentTime(int a) {
+		currentTime=a;
+	}
+	public String getStatusPlay() {
+		return statusPlay;
+	}
+	public void setStatusPlay(String s) {
+		statusPlay = s;
+	}
+	public Timestamp getDateUploaded() {
+		System.out.println(this.dateUploaded);
+		return dateUploaded;
+	}
 	public String getStatus() {
 		return status;
 	}
@@ -35,7 +63,7 @@ public class Video {
 		
 		Tag tag1= new Tag(JOptionPane.showInputDialog(null, "Introduce tag name"));
 		tags.add(tag1);
-		
+		duration = Integer.parseInt( JOptionPane.showInputDialog(null, "Introduce duration in seconds"));
 		boolean loop = true;
 		while(loop){
 			String keepTagging = JOptionPane.showInputDialog(null, "¿Would you like to add more tags?");

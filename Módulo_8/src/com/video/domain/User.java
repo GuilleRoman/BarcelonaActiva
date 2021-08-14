@@ -39,7 +39,9 @@ public class User {
 		if(URL.isBlank()|| title.isBlank()|| this.registred.isBlank())
 			throw new Exception();
 	}
-	
+	public Video getVideo() {
+		return myVideos.get(0);
+	}
 	public String getMyVideos() {
 		String lista="";
 		for(Video v:myVideos) {
@@ -57,6 +59,10 @@ public class User {
 
 	public void addVideo(Video e) {
 		this.myVideos.add(e);
+	}
+	public String getStatusPlay() {
+		System.out.println(this.myVideos.get(0).getStatusPlay());
+		return this.myVideos.get(0).getStatusPlay();
 	}
 	
 }
