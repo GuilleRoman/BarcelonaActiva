@@ -7,9 +7,12 @@ public class AppRocket {
 		Rocket rocket1= new Rocket("32WESSDS", 3);
 		Rocket rocket2= new Rocket("LDSFJA32", 6);
 		System.out.println("Rocket id: "+rocket1.getCodigo()+ 
-				"\nPotencia máxima: "+rocket1.getPropulsores());
+				"\nPotencia máxima: "+rocket1.getPropulsoresInfo());
 		System.out.println("Rocket id: "+rocket2.getCodigo()+ 
-				"\nPotencia máxima: "+rocket2.getPropulsores());
+				"\nPotencia máxima: "+rocket2.getPropulsoresInfo());
+		
+		rocket1.acelerar();
+		rocket2.acelerar();
 	}
 
 }
