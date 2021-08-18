@@ -35,10 +35,11 @@ public class Propulsores  {
 	}
 	public Propulsores() {
 		this.potenciaMaxima= Integer.parseInt( JOptionPane.showInputDialog(null, "Introduce potencia máxima"));
-		this.potenciaObjetivo= Integer.parseInt( JOptionPane.showInputDialog(null, "Introduce potencia objetivo"));
+//		this.potenciaObjetivo= Integer.parseInt( JOptionPane.showInputDialog(null, "Introduce potencia objetivo"));
 		this.potenciaActual=0;
 		
 	}
+	
 	
 	
 }
