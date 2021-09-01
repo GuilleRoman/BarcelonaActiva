@@ -1,7 +1,9 @@
 package com.rocket.domain;
+ 
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class Rocket extends Thread{
 	private String codigo;
@@ -11,7 +13,7 @@ public class Rocket extends Thread{
 	private int pt=0;
 	private int velocidadActual;
 	private int velocidad;
-	
+	private boolean frenado= false;
 	public String getCodigo() {
 		return codigo;
 	}
@@ -79,7 +81,10 @@ public class Rocket extends Thread{
 		
 		}
 	}
-	//int propulsoresListos=0;
+	public Rocket() {
+		
+	}
+
 	public void run() {
 		
 		while(!(this.velocidadActual==this.velocidad)) {
@@ -91,25 +96,32 @@ public class Rocket extends Thread{
 					this.generarPotencia(e);
 				}
 				else {
-//					propulsoresListos++;
-//					System.out.println("Propulsores listos: "+this.propulsoresListos);
-//					if(propulsoresListos==this.numPropulsores){
+
 						if(this.pt<this.velocidad) {
-							System.out.println("No hay potencia suficiente para alcanzar la velocidad estimada");
+							Lamina.cuadroInfo.append("\nNo hay potencia suficiente para alcanzar la velocidad estimada");
+							this.interrupt();
 							
-							break;
 						}else {
+							
 							while(!(this.velocidadActual==this.velocidad)) {
-								if((this.velocidad-this.velocidadActual)<=10) {
+								if(frenado==true) {
 									Thread.sleep(1000);
 									this.velocidadActual++;
-									System.out.println("---------------\nAcelerando Rocket: "+this.codigo+"\nVelocidad actual: "
-									+this.velocidadActual+"\nVelocidad objetivo: "+this.velocidad+"\n---------------");
-								}else {
+									
+									Lamina.cuadroInfo.append("\n"+"---------------\nAcelerando Rocket: "
+											+this.codigo+"\nVelocidad actual: "
+											+this.velocidadActual+"\nVelocidad objetivo: "
+											+this.velocidad+"\n---------------");
+								}
+									
+								else {
 									Thread.sleep(1000);
-									System.out.println("---------------\nAcelerando Rocket: "+this.codigo+"\nVelocidad actual: "
-									+this.velocidadActual+"\nVelocidad objetivo: "+this.velocidad+"\n---------------");
-									this.velocidadActual+=10;
+
+									Lamina.cuadroInfo.append("\n"+"---------------\nAcelerando Rocket: "
+											+this.codigo+"\nVelocidad actual: "
+											+this.velocidadActual+"\nVelocidad objetivo: "
+											+this.velocidad+"\n---------------");
+									this.velocidadActual+=5;
 								}
 						}
 					}
@@ -122,37 +134,51 @@ public class Rocket extends Thread{
 				
 		catch (InterruptedException e1) {
 			Thread.currentThread().interrupt();
-			e1.printStackTrace();
+			//e1.printStackTrace();
 		}			
 		}
-			System.out.println("Se ha alcanzado la velocidad objetivo del Rocket: "+this.codigo);
+
+			Lamina.cuadroInfo.append("\nSe ha alcanzado la velocidad objetivo del Rocket: "+this.codigo);
 	}
 		
 
 	
 	public void acelerar() {
-		
+		this.getDatos();
 		this.start();
 			
 		
 		
 	}
 	public void frenar() {
-		this.interrupt();
+		if(this.frenado==false) {
+			Lamina.cuadroInfo.append("\nReduciendo velocidad...");
+			this.frenado=true;
+		}else {
+			Lamina.cuadroInfo.append("\nAumentando velocidad...");
+			this.frenado=false;
+		}
+		
+		
 	}
 	public void generarPotencia(Propulsores e) {
-	
+					
 					
 					if(e.getPotenciaActual()<e.getPotenciaObjetivo()) {
 						
 						e.setPotenciaActual(e.getPotenciaActual()+1);
-						System.out.println(this.codigo+": "+"Propulsor nº: "+e.getOrdenCreado()+" Potencia actual: "+e.getPotenciaActual()+" Potencia objetivo: "
+
+						Lamina.cuadroInfo.append("\n"+this.codigo+": "+"Propulsor nº: "+e.getOrdenCreado()+" Potencia actual: "
+						+e.getPotenciaActual()+" Potencia objetivo: "
 								+ e.getPotenciaObjetivo()+" Potencia máxima: "+e.getPotenciaMaxima());
 					}
 					else if(e.getPotenciaActual()>e.getPotenciaObjetivo()) {
 						e.setPotenciaActual(e.getPotenciaActual()-1);
 					}else {
-						System.out.println(this.codigo+": "+"Propulsor nº: "+e.getOrdenCreado()+" Potencia alcanzada");
+
+						Lamina.cuadroInfo.append("\n"+this.codigo+": "+"Propulsor nº: "+e.getOrdenCreado()+" Potencia alcanzada");
+						
+						//Código para crear nueva potencia objetivo
 						
 //						e.setPotenciaObjetivo(Integer.parseInt(JOptionPane.showInputDialog("Introduce nueva P.O. para el Propulsor nº: "
 //						+e.getOrdenCreado()+ "con Potencia máxima: "+e.getPotenciaMaxima())));
@@ -164,6 +190,12 @@ public class Rocket extends Thread{
 //						}
 //						//this.frenar();
 					}
+	}
+	public void getDatos() {
+
+		Lamina.cuadroInfo.append("\nRocket id: "+this.getCodigo()+ 
+				"\nPotencia máxima: "+this.getPropulsoresInfo());
+		
 	}
 	
 }
