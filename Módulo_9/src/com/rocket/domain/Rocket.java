@@ -108,9 +108,28 @@ public class Rocket extends Thread{
 		
 		}
 	}
-	public void repartirPotencia() {
+	public void repartirPotenciaMaxima() {
 		for(Propulsores e:this.propulsores) {
 			pt= pt+e.getPotenciaMaxima();
+			
+		}
+	}
+	public void repartirPotenciaObjetivo() {
+		for(Propulsores e:this.propulsores) {
+			
+			int potenciaRepartir= e.getPotenciaMaxima()/this.numPropulsores;
+			int potenciaRestante=0;
+			potenciaRestante=potenciaRestante-potenciaRepartir;
+			if(potenciaRestante==0) {
+				e.setPotenciaObjetivo(0);
+				this.lamina.cuadroInfo.append("\nLa potencia se ha asignado a los propulsores en su totalidad.");
+				
+			}else {
+				e.setPotenciaObjetivo(potenciaRepartir);
+			}
+			
+			
+			
 			
 		}
 	}
@@ -127,7 +146,7 @@ public class Rocket extends Thread{
 	}
 
 	public void run() {
-		this.lamina.cuadroInfo.append("Inicio del Thread\n"+ Thread.currentThread().getName());
+		this.lamina.cuadroInfo.append("\nInicio del Thread del Rocket "+ Thread.currentThread().getName());
 		while(!(Thread.currentThread().isInterrupted())) {
 			
 				try {
@@ -135,7 +154,7 @@ public class Rocket extends Thread{
 			
 					
 				if(!(this.propulsoresListos==this.getNumPropulsores())) {
-//					this.generarPotencia(e);
+
 					
 				}
 				else {
@@ -241,17 +260,9 @@ public class Rocket extends Thread{
 
 						this.lamina.cuadroInfo.append("\n"+this.codigo+": "+"Propulsor nº: "+e.getOrdenCreado()+" Potencia alcanzada");
 						e.setListo(true);
-						//Código para crear nueva potencia objetivo
 						
-//						e.setPotenciaObjetivo(Integer.parseInt(JOptionPane.showInputDialog("Introduce nueva P.O. para el Propulsor nº: "
-//						+e.getOrdenCreado()+ "con Potencia máxima: "+e.getPotenciaMaxima())));
-//						try {
-//							Thread.sleep(3000);
-//						} catch (InterruptedException e1) {
-//							// TODO Auto-generated catch block
-//							e1.printStackTrace();
-//						}
-//						//this.frenar();
+						
+
 					}
 	}
 	public void getDatos() {

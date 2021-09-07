@@ -22,15 +22,10 @@ public class AppRocket {
 		controlPanel marco1= new controlPanel(rocket1);
 		rocket1.setLamina(marco1.getLamina());
 		controlPanel marco2= new controlPanel(rocket2);
-		rocket2.setLamina(marco2.getLamina());
-//		
+		rocket2.setLamina(marco2.getLamina());	
 		marco1.setVisible(true);
 		marco2.setVisible(true);
-		//rocket1.getDatos();
-		//rocket2.getDatos();
-		
-//		rocket1.acelerar();
-//		rocket2.acelerar();
+
 		
 	}
 	

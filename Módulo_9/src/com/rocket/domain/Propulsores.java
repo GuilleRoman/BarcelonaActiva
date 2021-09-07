@@ -2,6 +2,14 @@ package com.rocket.domain;
 import javax.swing.JOptionPane;
 
 public class Propulsores extends Thread{
+	private int potenciaMaxima;
+	private int potenciaActual;
+	private int potenciaObjetivo;
+	private int ordenCreado;
+	private boolean listo= false;
+	private Rocket rocket;
+	
+	
 	public int getPotenciaMaxima() {
 		return potenciaMaxima;
 	}
@@ -26,13 +34,7 @@ public class Propulsores extends Thread{
 	public void setOrdenCreado(int ordenCreado) {
 		this.ordenCreado = ordenCreado;
 	}
-	private int potenciaMaxima;
-	private int potenciaActual;
-	private int potenciaObjetivo;
-	private int ordenCreado;
-	private boolean listo= false;
 	
-	private Rocket rocket;
 	
 	public void setListo(boolean t) {
 		this.listo=t;
@@ -85,7 +87,7 @@ public void run() {
 			
 			
 		}
-//		this.rocket.getLamina().cuadroInfo.append("\nFin del Thread del propulsor "+ getOrdenCreado()
-//		+ "del Rocket: "+this.rocket.getCodigo()+" "+ Thread.currentThread().getName());
+		this.rocket.getLamina().cuadroInfo.append("\nFin del Thread del propulsor "+ getOrdenCreado()
+		+ "del Rocket: "+this.rocket.getCodigo()+" "+ Thread.currentThread().getName());
 	}
 }

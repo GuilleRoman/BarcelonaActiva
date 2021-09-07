@@ -14,7 +14,7 @@ Rocket rocket;
 Lamina lamina;		
 		public controlPanel(Rocket r) throws Exception  {
 			
-			setBounds(400,200, 500, 500);
+			setBounds(400,200, 900, 600);
 			this.lamina = new Lamina(r);
 			setTitle("Panel de Control del Rocket: "+ r.getCodigo());
 			add(lamina);
@@ -35,7 +35,7 @@ Lamina lamina;
 		
 		public  JScrollPane scroll = new JScrollPane(cuadroInfo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
-		JLabel infoPanel= new JLabel("Controle los valores del Rocket");
+		JLabel infoPanel= new JLabel("--------------------------------Controle los valores del Rocket--------------------------------");
 		
 		
 		public Lamina(Rocket f) throws Exception {
@@ -62,10 +62,13 @@ Lamina lamina;
 			}else if(e.getSource()==laminaTest.cambiarVelocidad) {
 				int text = Integer.parseInt(laminaTest.nuevaVelocidad.getText());
 				this.rocket.setVelocidad(text);
+				laminaTest.nuevaVelocidad.setText("");
 				
 			}else if(e.getSource()==laminaTest.cambiarAceleracion) {
 				int aceleracion= Integer.parseInt(laminaTest.nuevaAceleracion.getText());
 				this.rocket.setVelocidadAceleracion(aceleracion);
+				laminaTest.nuevaAceleracion.setText("");
+				//this.rocket.repartirPotenciaObjetivo();
 			}
 		}
 	}
@@ -78,9 +81,9 @@ Lamina lamina;
 		
 		private static final long serialVersionUID = 232254242927974488L;
 		
-		JButton botonAcelerar = new JButton("Acelerar");
+		JButton botonAcelerar = new JButton("Comenzar");
 		JTextField nuevaVelocidad= new JTextField("Velocidad objetivo");
-		JButton botonFrenar = new JButton("Frenar");
+		JButton botonFrenar = new JButton("Frenar/Acelerar");
 		JButton cambiarVelocidad = new JButton("Cambiar Velocidad");
 		JButton cambiarAceleracion= new JButton("Cambiar Aceleración");
 		JTextField nuevaAceleracion= new JTextField("Aceleración");
