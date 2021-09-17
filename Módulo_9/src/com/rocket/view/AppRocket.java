@@ -27,13 +27,5 @@ public class AppRocket {
 		marco2.setVisible(true);
 
 		
-	}
-	
-	
-	
-	
-	
-	
-
-	
+	}	
 }
