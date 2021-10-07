@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Employees</title>
+	</head>
+	<body>
+		<h1>Employees</h1>
+		<h3>User: <span th:text="${user.name}"></span><br> Password: <span th:text="${user.password}"></span></h3>	
+			
+		<table border=1>
+			<thead>
+				<tr><th>Id<th>Name<th>Job<th>Delete<th>Modify
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${employees.empty}">
+					<td colspan="2"> No employees available </td>
+					</tr>
+					<tr th:each="employee: ${employees}">
+					<td><span th:text="${employee.id}"></span></td>
+					<td><span th:text="${employee.name}"></span></td>
+					<td><span th:text="${employee.job}"></span></td>
+					<td><a th:href="@{/delete/}+${employee.id}">Delete</a></td>
+					<td><a th:href="@{/modify/}+${employee.id}">Modify</a></td>
+					
+				</tr>
+			
+			</tbody>
+		
+		
+		</table>
+		<form action="/insert" method="post">
+		<br> ID: <input type=text name=id th:value="${employee?.id}">
+		Name: <input type=text name=name th:value="${employee?.name}">
+		Job: <input type=text name=job th:value="${employee?.job}">
+		<input type=submit name=submit th:value="${button}">
+		</form>
+		
+		
+		
+		
+		
+	</body>
+</html>
