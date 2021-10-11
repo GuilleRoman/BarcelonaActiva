@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "37af652f-cb08-4bf8-9ef8-8710ebf9799b",
+		"name": "M12N3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "proyecto Maven",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/?message=Guille",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Guille"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "939f2986-3389-4f79-b310-ed019ee934f8",
+		"name": "rest countries API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "rest countries API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/lang/es",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"lang",
+						"es"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
