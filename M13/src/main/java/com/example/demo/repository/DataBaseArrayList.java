@@ -13,25 +13,25 @@ public class DataBaseArrayList {
 	
 	public DataBaseArrayList() {
 		employees.add(new Employee(1, "Pepe", JobType.DEVELOPER));
-		employees.add(new Employee(2, "Pepe", JobType.BUSSINESS));
-		employees.add(new Employee(3, "Pepe", JobType.HR));
-		employees.add(new Employee(4, "Pepe", JobType.INDUSTRIAL));
-		employees.add(new Employee(5, "Pepe", JobType.MANAGER));
-		employees.add(new Employee(6, "Pepe", JobType.QA));
-		employees.add(new Employee(7, "Pepe", JobType.MAINTENANCE));
-		employees.add(new Employee(8, "Pepe", JobType.DEVELOPER));
-		employees.add(new Employee(9, "Pepe", JobType.DEVELOPER));
-		employees.add(new Employee(10, "Pepe", JobType.BUSSINESS));
-		employees.add(new Employee(11, "Pepe", JobType.IT));
-		employees.add(new Employee(12, "Pepe", JobType.IT));
-		employees.add(new Employee(13, "Pepe", JobType.MAINTENANCE));
-		employees.add(new Employee(14, "Pepe", JobType.BUSSINESS));
-		employees.add(new Employee(15, "Pepe", JobType.BUSSINESS));
-		employees.add(new Employee(16, "Pepe", JobType.DEVELOPER));
-		employees.add(new Employee(17, "Pepe", JobType.HR));
-		employees.add(new Employee(18, "Pepe", JobType.QA));
-		employees.add(new Employee(19, "Pepe", JobType.BUSSINESS));
-		employees.add(new Employee(20, "Pepe", JobType.DEVELOPER));
+		employees.add(new Employee(2, "Juan", JobType.BUSSINESS));
+		employees.add(new Employee(3, "María", JobType.HR));
+		employees.add(new Employee(4, "Marta", JobType.INDUSTRIAL));
+		employees.add(new Employee(5, "Cristina", JobType.MANAGER));
+		employees.add(new Employee(6, "Jorge", JobType.QA));
+		employees.add(new Employee(7, "Laia", JobType.MAINTENANCE));
+		employees.add(new Employee(8, "Kevin", JobType.DEVELOPER));
+		employees.add(new Employee(9, "Francisco", JobType.DEVELOPER));
+		employees.add(new Employee(10, "Jose María", JobType.BUSSINESS));
+		employees.add(new Employee(11, "Andreu", JobType.IT));
+		employees.add(new Employee(12, "Berto", JobType.IT));
+		employees.add(new Employee(13, "Alma", JobType.MAINTENANCE));
+		employees.add(new Employee(14, "Natalia", JobType.BUSSINESS));
+		employees.add(new Employee(15, "Almudena", JobType.BUSSINESS));
+		employees.add(new Employee(16, "Carlos", JobType.DEVELOPER));
+		employees.add(new Employee(17, "Cristian", JobType.HR));
+		employees.add(new Employee(18, "Mike", JobType.QA));
+		employees.add(new Employee(19, "Ashley", JobType.BUSSINESS));
+		employees.add(new Employee(20, "Javier", JobType.DEVELOPER));
 	}
 	
 	public ArrayList<Employee> getEmployees(){
@@ -49,9 +49,26 @@ public class DataBaseArrayList {
 				return emp;
 			}
 		}
-		return null;
-		
-		
+		return null;	
+	}
+	
+//	public Employee getEmployee(@PathVariable JobType job) {	
+//		Iterator<Employee> it = employees.iterator();
+//		while(it.hasNext()) {
+//			Employee emp = it.next();
+//			if(emp.getJob()==job) {
+//				return emp;
+//			}
+//		}
+//		return null;	
+//	}
+	
+	public ArrayList<Employee> searchByJob(@PathVariable JobType job){
+		ArrayList<Employee> employeesFound = new ArrayList<Employee>();
+		for(Employee e: this.employees) {
+			if(e.getJob().equals(job)) employeesFound.add(e);
+		}
+		return employeesFound;
 	}
 	
 	public void insert(Employee employee) {
@@ -66,6 +83,23 @@ public class DataBaseArrayList {
 			}
 		}
 	}
+	
+	public void delete(@PathVariable JobType job) {
+		Iterator<Employee> it = employees.iterator();
+		while(it.hasNext()) {
+			Employee emp = it.next();
+			if(emp.getJob()==job) {
+				continue;
+			}else {
+				it.remove();
+			}
+		}
+	}
+	
+	
+	
+	
+	
 	public void modify(Employee employee) {
 		Iterator<Employee> it = employees.iterator();
 		while(it.hasNext()) {
@@ -74,6 +108,7 @@ public class DataBaseArrayList {
 				emp.setName(employee.getName());
 				emp.setJob(employee.getJob());
 				emp.setId(employee.getId());
+				emp.setSalary(employee.getSalary());
 				break;
 			}
 		}

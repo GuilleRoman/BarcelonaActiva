@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 	<meta charset="ISO-8859-1">
-	<title>Employees</title>
+	<title>Employees Database</title>
 	</head>
 	<body>
 		<h1>Employees</h1>
-		<h3>User: <span th:text="${user.name}"></span><br> Password: <span th:text="${user.password}"></span></h3>	
+		<h3>User: <span th:text="${user.name}"></span>-  Password: <span th:text="${user.password}"></span></h3>	
 			
 		<table border=1>
 			<thead>
-				<tr><th>Id<th>Name<th>Job<th>Delete<th>Modify
+				<tr><th>Id<th>Name<th>Job<th>Salary<th>Delete<th>Modify
 				</tr>
 			</thead>
 			<tbody>
@@ -21,6 +21,7 @@
 					<td><span th:text="${employee.id}"></span></td>
 					<td><span th:text="${employee.name}"></span></td>
 					<td><span th:text="${employee.job}"></span></td>
+					<td><span th:text="${employee.salary}"></span></td>
 					<td><a th:href="@{/delete/}+${employee.id}">Delete</a></td>
 					<td><a th:href="@{/modify/}+${employee.id}">Modify</a></td>
 					
@@ -30,14 +31,33 @@
 		
 		
 		</table>
-		<form action="/insert" method="post">
-		<br> ID: <input type=text name=id th:value="${employee?.id}">
-		Name: <input type=text name=name th:value="${employee?.name}">
-		Job: <input type=text name=job th:value="${employee?.job}">
+		<form th:action="${action}" th:object="${employee}" method="post">
+		<br> ID: <input type=text name=id th:field="*{id}" value="*{id}">
+		Name: <input type=text name=name th:field="*{name}" value="*{name}">
+		Job:
+		<select th:field="*{job}">
+			<option th:each="job :${T(com.example.demo.bean.JobType).values()}"
+			th:value="${job}"
+			th:text="${job.position}">
+			</option>
+		</select>
+		
 		<input type=submit name=submit th:value="${button}">
 		</form>
+			
+<!-- 			Formulario para escribir y buscar el trabajo -->
+<!-- 		<form action="/search" method="post"> -->
 		
+<!-- 		<input type=submit name=submit th:value="${button1}"> -->
+<!-- 		</form> -->
 		
+<!-- 	 		Desplegable para elegir el trabajo -->
+<!-- 		<select th:field="*{job}" > -->
+<!--       <option th:each="usertype : ${UserTypes}" -->
+<!--              th:text="${usertype}" -->
+<!--      th:value="${usertype}"> -->
+<!--     </option> -->
+<!--     </select> -->
 		
 		
 		
