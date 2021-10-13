@@ -112,10 +112,35 @@ public class Controllador {
 	}
 	
 	//Búsqueda por trabajo por BD arraylist y JDBC
-	@GetMapping("/search/{job}")
-	public String search(@PathVariable JobType job, Model model) {
+//	@GetMapping("/search/{job}")
+//	public String search(@PathVariable JobType job, Model model) {
+//
+//		ArrayList<Employee> employees = db.searchByJob(job);
+//		model.addAttribute("employees", employees);
+//		model.addAttribute("employee", new Employee());
+//		model.addAttribute("user", this.user);
+//		model.addAttribute("button", "Insert Employee");
+//		model.addAttribute("action", "/insert");
+//		return "consulta";
+//	}
+//	
+//	@PostMapping("/search")
+//	public String search1(@PathVariable JobType job,Employee employee, Model model) {
+//
+//		ArrayList<Employee> employees = db.searchByJob(job);
+//		model.addAttribute("employees", employees);
+//		model.addAttribute("employee", new Employee());
+//		model.addAttribute("user", this.user);
+//		model.addAttribute("button", "Insert Employee");
+//	model.addAttribute("action", "/insert");
+//		return "consulta";
+//	}
+	
+	// Búsqueda por ID por BD JPA
+	@PostMapping("/search")
+	public String search1(@PathVariable int id,Employee employee, Model model) {
 
-		ArrayList<Employee> employees = db.searchByJob(job);
+		Employee employees = db.getEmployee(id);
 		model.addAttribute("employees", employees);
 		model.addAttribute("employee", new Employee());
 		model.addAttribute("user", this.user);
@@ -124,45 +149,21 @@ public class Controllador {
 		return "consulta";
 	}
 	
-	@PostMapping("/search")
-	public String search1(@PathVariable JobType job,Employee employee, Model model) {
-
-		ArrayList<Employee> employees = db.searchByJob(job);
+	
+	@GetMapping("/search/{id}")
+	public String search(@PathVariable int id, Model model) {
+		Employee employee = db.getEmployee(id);
+		//Creamos un ArrayList ya que el archivo consulta.html espera recibir una lista con los empleados encontrados
+		// así no tenemos que modificar ese archivo tambien
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		employees.add(employee);
 		model.addAttribute("employees", employees);
-		model.addAttribute("employee", new Employee());
+		model.addAttribute("employee", employee);
 		model.addAttribute("user", this.user);
-		//model.addAttribute("Jobtypes", JobType.values());
 		model.addAttribute("button", "Insert Employee");
-	model.addAttribute("action", "/insert");
+		model.addAttribute("action", "/insert");
 		return "consulta";
 	}
-	
-	// Búsqueda por ID por BD JPA
-//	@PostMapping("/search")
-//	public String search1(@PathVariable int id,Employee employee, Model model) {
-//
-//		Employee employees = db.getEmployee(id);
-//		model.addAttribute("employees", employees);
-//		model.addAttribute("employee", new Employee());
-//		model.addAttribute("user", this.user);
-//		//model.addAttribute("Jobtypes", JobType.values());
-//		model.addAttribute("button", "Insert Employee");
-//		model.addAttribute("action", "/insert");
-//		return "consulta";
-//	}
-//	
-//	
-//	@GetMapping("/search/{id}")
-//	public String search(@PathVariable int id, Model model) {
-//
-//		Employee employees = db.getEmployee(id);
-//		model.addAttribute("employees", employees);
-//		model.addAttribute("employee", new Employee());
-//		model.addAttribute("user", this.user);
-//		model.addAttribute("button", "Insert Employee");
-//		model.addAttribute("action", "/insert");
-//		return "consulta";
-//	}
 	
 	
 	

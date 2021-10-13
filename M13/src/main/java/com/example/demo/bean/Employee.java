@@ -22,6 +22,7 @@ public class Employee {
 	@Column(name="job")
 	@Enumerated(EnumType.STRING)
 	private JobType job;
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private double salary;
 	
 	public String getName() {

@@ -22,7 +22,9 @@ public class DataBaseJPAService implements IDataBaseJPA {
 	@Override
 	public void insert(Employee employee) {
 		// TODO Auto-generated method stub
-		database3.save(employee);
+		Employee newEmployee = new Employee(employee.getId(), employee.getName(), employee.getJob());
+		database3.save(newEmployee);
+		
 	}
 
 	@Override
@@ -34,7 +36,8 @@ public class DataBaseJPAService implements IDataBaseJPA {
 	@Override
 	public void modify(Employee employee) {
 		// TODO Auto-generated method stub
-		database3.save(employee);
+		Employee newEmployee = new Employee(employee.getId(), employee.getName(), employee.getJob());
+		database3.save(newEmployee);
 	}
 
 	

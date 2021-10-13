@@ -22,6 +22,8 @@
 
 			<h3>User: <span th:text="${user.name}"></span> -  Password: <span th:text="${user.password}"></span></h3>	
 			<br>
+		
+		
 		<form class="form-group" th:action="${action}" th:object="${employee}" method="post">
 			<br> ID: <input type=text name=id th:field="*{id}" value="*{id}">
 			Name: <input type=text name=name th:field="*{name}" value="*{name}">
@@ -51,8 +53,8 @@
 					<td><span th:text="${employee.name}"></span></td>
 					<td><span th:text="${employee.job}"></span></td>
 					<td><span th:text="${employee.salary}"></span></td>
-					<td><a class="btn btn-danger" th:href="@{/delete/}+${employee.id}">Delete</a></td>
 					<td><a class="btn btn-info" th:href="@{/modify/}+${employee.id}">Modify</a></td>
+					<td><a class="btn btn-danger" th:href="@{/delete/}+${employee.id}">Delete</a></td>
 					
 				</tr>
 			
