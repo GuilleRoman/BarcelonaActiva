@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +26,9 @@ public class Controllador {
 	
 //	DataBaseArrayList db= new DataBaseArrayList();
 
-	DataBaseJDBC db= new DataBaseJDBC();
-	//@Autowired
-	//DataBaseJPAService db;
+	//DataBaseJDBC db= new DataBaseJDBC();
+	@Autowired
+	DataBaseJPAService db;
 	Employee employee;
 	User user;
 	

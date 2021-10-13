@@ -3,13 +3,27 @@
 	<head>
 	<meta charset="ISO-8859-1">
 	<title th:text="${titulo}"></title>
-	</head>
+<!-- 	<th:block th:include="/head :: head"></th:block> -->
+		
+</head>
+
 	<body>
+		
+		<div class="container">
+		<div>
+			<img src="/img/barcelonactiva.png" alt="Barcelona Activa logo" />
+			&nbsp;&nbsp;<img src="/img/ITAcademy.png" alt="IT Academy logo" /> <br>
+			<br>
+			<h1>Module 13 SPRING-CRUD</h1>
+			<br>
+		</div>
+
 		<h1 th:text="${titulo}"></h1>
 			<form action="/" method="post">
 				Login:    <input type=text name=name><br><br>
 				Password: <input type="password" name=password><br><br>
-				<input type=submit name=submit value=login>
+				<button type="submit" name="submit" class="btn btn-success" value=login>Login</button>
+
 			</form>	
 	
 	
