@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ import com.example.demo.service.DataBaseJPAService;
 @RequestMapping("")
 public class Controllador {
 	
-//	DataBaseArrayList db= new DataBaseArrayList();
-
+	
+	//DataBaseArrayList db= new DataBaseArrayList();
 	//DataBaseJDBC db= new DataBaseJDBC();
 	@Autowired
 	DataBaseJPAService db;
@@ -35,7 +36,7 @@ public class Controllador {
 	
 	@GetMapping("/")
 	public String start(Model model) {
-		model.addAttribute("titulo", "LOGIN FORM");
+		model.addAttribute("titulo", "Introduce your credentials");
 		return "login";
 	}
 	
