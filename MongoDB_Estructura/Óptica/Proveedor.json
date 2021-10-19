@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "616dc10d802b5aded9f0b36d"
+  },
+  "proveedor_id": 1,
+  "nombre": "OpticalH",
+  "direccion": {
+    "calle": "Herradores",
+    "numero": "70",
+    "CP": "38201",
+    "localidad": "San Cristobal de La Laguna",
+    "provincia": "Santa Cruz de Tenerife",
+    "pais": "España"
+  },
+  "NIF": "92834923",
+  "fax": "3494838493",
+  "telefono": "239804209384",
+  "marca": "Carrera"
+},{
+  "_id": {
+    "$oid": "616ed78c8a0e5438878926d5"
+  },
+  "proveedor_id": 2,
+  "nombre": "GafasMuchas",
+  "direccion": {
+    "calle": "Arago",
+    "numero": "150",
+    "CP": "234201",
+    "localidad": "Barcelona",
+    "provincia": "Barcelona",
+    "pais": "España"
+  },
+  "NIF": "23423422",
+  "fax": "34343838493",
+  "telefono": "7665554",
+  "marca": "Rayban"
+},{
+  "_id": {
+    "$oid": "616edd178a0e5438878926f2"
+  },
+  "proveedor_id": 3,
+  "nombre": "Los Fabricantes de Gafas",
+  "direccion": {
+    "calle": "Valencia",
+    "numero": "650",
+    "CP": "23201",
+    "localidad": "Murcia",
+    "provincia": "Murcia",
+    "pais": "España"
+  },
+  "NIF": "65453422",
+  "fax": "9983838493",
+  "telefono": "87554",
+  "marca": "Gucci"
+},{
+  "_id": {
+    "$oid": "616edd5c8a0e5438878926f9"
+  },
+  "proveedor_id": 3,
+  "nombre": "Gafas Caras",
+  "direccion": {
+    "calle": "Ronda",
+    "numero": "10",
+    "CP": "007432",
+    "localidad": "Granada",
+    "provincia": "Granada",
+    "pais": "España"
+  },
+  "NIF": "122153422",
+  "fax": "987388493",
+  "telefono": "83333354",
+  "marca": "Arnette"
+}]

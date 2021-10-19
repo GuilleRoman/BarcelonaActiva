@@ -1,0 +1,36 @@
+[{
+  "_id": 1,
+  "nombre": "Javier",
+  "apellidos": "López Tomás",
+  "direccion": {
+    "Localidad": {
+      "localidad_id": 1
+    },
+    "CP": "80064"
+  },
+  "telefono": 62734872
+},{
+  "_id": 2,
+  "nombre": "Pedro",
+  "apellidos": "Martinez Hernández",
+  "direccion": {
+    "Localidad": {
+      "localidad_id": 2
+    },
+    "CP": "80032"
+  },
+  "telefono": 72734872
+},{
+  "_id": {
+    "$oid": "616ecece8a0e543887892613"
+  },
+  "nombre": "María",
+  "apellidos": "Álvarez Dominguez",
+  "direccion": {
+    "Localidad": {
+      "localidad_id": 3
+    },
+    "CP": "80032"
+  },
+  "telefono": 3334872
+}]

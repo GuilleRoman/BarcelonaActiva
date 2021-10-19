@@ -1,0 +1,148 @@
+[{
+  "_id": {
+    "$oid": "616dbe6b802b5aded9f0b33b"
+  },
+  "Productos": {
+    "producto_id": [
+      2,
+      3
+    ]
+  },
+  "Localidad": {
+    "localidad_id": 3
+  },
+  "Cliente": {
+    "_id": 2
+  },
+  "Tienda": {
+    "tienda_id": 3
+  }
+},{
+  "_id": {
+    "$oid": "616e8a0a0770c196be785afc"
+  },
+  "Productos": {
+    "producto_id": [
+      1,
+      1,
+      2
+    ],
+    "categoria": "Hawaiana"
+  },
+  "Localidad": {
+    "localidad_id": 1
+  },
+  "Cliente": {
+    "nombre": "Guillermo Román",
+    "direccion": {
+      "calle": "Fluvia",
+      "numero": "194",
+      "piso": "6",
+      "puerta": "2",
+      "CP": "080026"
+    }
+  },
+  "Tienda": {
+    "tienda_id": 1
+  }
+},{
+  "_id": {
+    "$oid": "616ecaec8a0e5438878925e6"
+  },
+  "Localidad": {
+    "localidad_id": 1
+  },
+  "Cliente": {
+    "_id": 1
+  },
+  "Tienda": {
+    "tienda_id": 1
+  },
+  "Productos": {
+    "producto_id": [
+      1,
+      2,
+      3
+    ],
+    "categoria": "Otoño"
+  }
+},{
+  "_id": {
+    "$oid": "616ecb358a0e5438878925e7"
+  },
+  "Productos": {
+    "producto_id": [
+      1,
+      1,
+      1
+    ],
+    "categoria": [
+      "Invierno",
+      "Verano",
+      "Verano"
+    ]
+  },
+  "Localidad": {
+    "localidad_id": 3
+  },
+  "Cliente": {
+    "_id": 2
+  },
+  "Tienda": {
+    "tienda_id": 1
+  }
+},{
+  "_id": {
+    "$oid": "616ecd068a0e5438878925f8"
+  },
+  "Productos": {
+    "producto_id": [
+      2,
+      3
+    ]
+  },
+  "Localidad": {
+    "localidad_id": 3
+  },
+  "Cliente": {
+    "nombre": "Leyre",
+    "apellidos": "Esde Lugo",
+    "direccion": {
+      "Localidad": {
+        "localidad_id": 1
+      },
+      "CP": "80064"
+    },
+    "telefono": 62344872
+  },
+  "Tienda": {
+    "tienda_id": 3
+  }
+},{
+  "_id": {
+    "$oid": "616ed0238a0e543887892630"
+  },
+  "Productos": {
+    "producto_id": [
+      2,
+      3
+    ]
+  },
+  "Localidad": {
+    "localidad_id": 3
+  },
+  "Cliente": {
+    "nombre": "Manuel",
+    "apellidos": "Robles",
+    "direccion": {
+      "Localidad": {
+        "localidad_id": 1
+      },
+      "CP": "80064"
+    },
+    "telefono": 62344872
+  },
+  "Tienda": {
+    "tienda_id": 3
+  }
+}]

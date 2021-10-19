@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "616e8b730770c196be785b25"
+  },
+  "nombre": "Telepizza",
+  "tienda_id": 1,
+  "direccion": {
+    "calle": "Fluvia",
+    "numero": "200",
+    "piso": "0",
+    "puerta": "0",
+    "CP": "080026"
+  },
+  "localidad_id": 1
+},{
+  "_id": {
+    "$oid": "616e8b9a0770c196be785b26"
+  },
+  "nombre": "Sports Bar",
+  "tienda_id": 5,
+  "direccion": {
+    "calle": "Arago",
+    "numero": "500",
+    "piso": "0-1",
+    "puerta": "0",
+    "CP": "080130"
+  },
+  "localidad_id": 1
+},{
+  "_id": {
+    "$oid": "616ec1268a0e5438878925a3"
+  },
+  "nombre": "Domino's",
+  "tienda_id": 2,
+  "direccion": {
+    "calle": "Andrade",
+    "numero": "33",
+    "piso": "0",
+    "puerta": "1",
+    "CP": "055026"
+  },
+  "localidad_id": 1
+},{
+  "_id": {
+    "$oid": "616ec15a8a0e5438878925a4"
+  },
+  "nombre": "Belillo",
+  "tienda_id": 3,
+  "direccion": {
+    "calle": "Princesa",
+    "numero": "655",
+    "piso": "0",
+    "puerta": "0",
+    "CP": "180130"
+  },
+  "localidad_id": 1
+},{
+  "_id": {
+    "$oid": "616ec1858a0e5438878925a5"
+  },
+  "nombre": "SiamoQua",
+  "tienda_id": 4,
+  "direccion": {
+    "calle": "Valencia",
+    "numero": "615",
+    "piso": "0",
+    "puerta": "0",
+    "CP": "080020"
+  },
+  "localidad_id": 1
+}]

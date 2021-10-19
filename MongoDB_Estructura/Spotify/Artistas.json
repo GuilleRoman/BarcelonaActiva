@@ -1,0 +1,119 @@
+[{
+  "_id": {
+    "$oid": "616eebd58a0e543887892736"
+  },
+  "nombre": "Linkin Park",
+  "imagen": "",
+  "Álbumes": [
+    {
+      "titulo": "Meteora",
+      "canciones": [
+        {
+          "cancion_id": 1,
+          "titulo": "in the end",
+          "duracion": "03.55",
+          "reproducciones": "999999999999"
+        },
+        {
+          "cancion_id": 2,
+          "titulo": "numb",
+          "duracion": "03.25",
+          "reproducciones": "45345399999999"
+        },
+        {
+          "cancion_id": 3,
+          "titulo": "what i've done",
+          "duracion": "03.05",
+          "reproducciones": "6456499999999"
+        }
+      ]
+    },
+    {
+      "titulo": "Living things",
+      "canciones": [
+        {
+          "cancion_id": 4,
+          "titulo": "lost in the echo",
+          "duracion": "02.55",
+          "reproducciones": "88779999999"
+        },
+        {
+          "cancion_id": 5,
+          "titulo": "Powerless",
+          "duracion": "03.35",
+          "reproducciones": "45345399999999"
+        },
+        {
+          "cancion_id": 6,
+          "titulo": "in my remains",
+          "duracion": "02.45",
+          "reproducciones": "776499999999"
+        }
+      ]
+    }
+  ],
+  "artistas_relacionados": [
+    {
+      "artista_id": "616eeef58a0e543887892737"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616eeef58a0e543887892737"
+  },
+  "nombre": "Three days Grace",
+  "imagen": "",
+  "Álbumes": [
+    {
+      "titulo": "One-X",
+      "canciones": [
+        {
+          "cancion_id": 7,
+          "titulo": "Pain",
+          "duracion": "02.55",
+          "reproducciones": "999999999999"
+        },
+        {
+          "cancion_id": 8,
+          "titulo": "Animal i have become",
+          "duracion": "03.22",
+          "reproducciones": "45345399999999"
+        },
+        {
+          "cancion_id": 9,
+          "titulo": "Riot",
+          "duracion": "03.01",
+          "reproducciones": "6456499999999"
+        }
+      ]
+    },
+    {
+      "titulo": "Life Starts now",
+      "canciones": [
+        {
+          "cancion_id": 10,
+          "titulo": "Break",
+          "duracion": "02.55",
+          "reproducciones": "4334345122199"
+        },
+        {
+          "cancion_id": 11,
+          "titulo": "Lost in you",
+          "duracion": "03.35",
+          "reproducciones": "231231211999"
+        },
+        {
+          "cancion_id": 12,
+          "titulo": "The good life",
+          "duracion": "02.45",
+          "reproducciones": "12131329999"
+        }
+      ]
+    }
+  ],
+  "artistas_relacionados": [
+    {
+      "artista_id": "616eebd58a0e543887892736"
+    }
+  ]
+}]

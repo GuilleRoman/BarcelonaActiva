@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "616d55c7d4a09c76ecfacaaa"
+  },
+  "graduacion": {
+    "cristal_izquierdo": 0.75,
+    "cristal_derecho": 1
+  },
+  "montura": "pasta",
+  "color": "verde",
+  "precio": 75,
+  "vendido_por": "Guillermo Román",
+  "proveedor_id": 1
+},{
+  "_id": {
+    "$oid": "616dc008802b5aded9f0b362"
+  },
+  "graduacion": {
+    "cristal_izquierdo": 1,
+    "cristal_derecho": 1.2
+  },
+  "montura": "flotante",
+  "color": "azul",
+  "precio": 130,
+  "vendido_por": "Leyre Luján",
+  "proveedor_id": 2
+},{
+  "_id": {
+    "$oid": "616dc032802b5aded9f0b363"
+  },
+  "graduacion": {
+    "cristal_izquierdo": 2.5,
+    "cristal_derecho": 2
+  },
+  "montura": "flotante",
+  "color": "rojo",
+  "precio": 50,
+  "vendido_por": "Guillermo Román",
+  "proveedor_id": 3
+},{
+  "_id": {
+    "$oid": "616dc05f802b5aded9f0b364"
+  },
+  "graduacion": {
+    "cristal_izquierdo": 1,
+    "cristal_derecho": 1
+  },
+  "montura": "metálica",
+  "color": "amarillo",
+  "precio": 100,
+  "vendido_por": "Alberto Pérez",
+  "proveedor_id": 4
+}]

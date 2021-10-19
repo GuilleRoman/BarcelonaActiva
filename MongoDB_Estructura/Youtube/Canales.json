@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "616dc556802b5aded9f0b39e"
+  },
+  "canal_id": "1",
+  "nombre": "GrupoReviews",
+  "descripcion": "Canal sobre tecnología",
+  "fecha_creacion": {
+    "$date": "2017-12-11T23:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "616ed1e08a0e543887892665"
+  },
+  "canal_id": "2",
+  "nombre": "Ibai",
+  "descripcion": "Esports y entretenimiento",
+  "fecha_creacion": {
+    "$date": "2020-12-11T23:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "616ed1f38a0e543887892666"
+  },
+  "canal_id": "3",
+  "nombre": "Werlyb",
+  "descripcion": "Esports y videojuegos",
+  "fecha_creacion": {
+    "$date": "2018-12-11T23:00:00Z"
+  }
+}]

@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "616dac5e802b5aded9f0a3c2"
+  },
+  "nombre": "Barcelona",
+  "provincia_id": 1
+},{
+  "_id": {
+    "$oid": "616dac66802b5aded9f0a3c4"
+  },
+  "nombre": "Madrid",
+  "provincia_id": 2
+},{
+  "_id": {
+    "$oid": "616dac7e802b5aded9f0a3c6"
+  },
+  "nombre": "Granada",
+  "provincia_id": 3
+},{
+  "_id": {
+    "$oid": "616dac9b802b5aded9f0a3c8"
+  },
+  "nombre": "Santiago",
+  "provincia_id": 4
+},{
+  "_id": {
+    "$oid": "616daca7802b5aded9f0a3ca"
+  },
+  "nombre": "Huelva",
+  "provincia_id": 5
+},{
+  "_id": {
+    "$oid": "616dacbf802b5aded9f0a3cc"
+  },
+  "nombre": "Girona",
+  "provincia_id": 6
+},{
+  "_id": {
+    "$oid": "616e82d60770c196be785adb"
+  },
+  "nombre": "Lérida",
+  "provincia_id": 7
+},{
+  "_id": {
+    "$oid": "616e82fb0770c196be785ae0"
+  },
+  "nombre": "Murcia",
+  "provincia_id": 8
+},{
+  "_id": {
+    "$oid": "616e84bb0770c196be785ae5"
+  },
+  "nombre": "Cáceres",
+  "provincia_id": 9
+}]

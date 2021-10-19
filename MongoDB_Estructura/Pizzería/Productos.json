@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "616dae3a802b5aded9f0a3e2"
+  },
+  "nombre": "pizza",
+  "descripcion": "Masa fina al horno de piedra",
+  "imagen": null,
+  "precio": 12,
+  "Categoría": {
+    "$oid": "616d5e16d4a09c76ecfacab4"
+  },
+  "producto_id": 1
+},{
+  "_id": {
+    "$oid": "616dae7a802b5aded9f0a3e3"
+  },
+  "nombre": "hamburguesa",
+  "descripcion": "Dos panes de mollete con salsa mayo y 200gr de carne de ternera al punto",
+  "imagen": null,
+  "precio": 10,
+  "producto_id": 2
+},{
+  "_id": {
+    "$oid": "616dae89802b5aded9f0a3e4"
+  },
+  "nombre": "Bebidas",
+  "descripcion": "Agua",
+  "imagen": null,
+  "precio": 1.5,
+  "producto_id": 3
+}]

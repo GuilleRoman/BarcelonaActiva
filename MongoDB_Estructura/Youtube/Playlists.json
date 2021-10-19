@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "616dc5a0802b5aded9f0b3a3"
+  },
+  "playlist_id": "1",
+  "nombre": "Metal",
+  "fecha_creacion": {
+    "$date": "2021-09-20T22:00:00Z"
+  },
+  "estado": "pública",
+  "videos": [
+    {
+      "videos_id": 1
+    },
+    {
+      "videos_id": 2
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616ed1ff8a0e54388789266b"
+  },
+  "playlist_id": "2",
+  "nombre": "Rock",
+  "fecha_creacion": {
+    "$date": "2021-09-20T22:00:00Z"
+  },
+  "estado": "pública",
+  "videos": [
+    {
+      "videos_id": 3
+    },
+    {
+      "videos_id": 2
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616ed20f8a0e54388789266c"
+  },
+  "playlist_id": "3",
+  "nombre": "Power Metal",
+  "fecha_creacion": {
+    "$date": "2021-09-20T22:00:00Z"
+  },
+  "estado": "privada",
+  "videos": [
+    {
+      "videos_id": 2
+    },
+    {
+      "videos_id": 3
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616ed21a8a0e54388789266d"
+  },
+  "playlist_id": "1",
+  "nombre": "Anime",
+  "fecha_creacion": {
+    "$date": "2021-09-20T22:00:00Z"
+  },
+  "estado": "oculta",
+  "videos": [
+    {
+      "videos_id": 1
+    },
+    {
+      "videos_id": 2
+    },
+    {
+      "videos_id": 3
+    }
+  ]
+}]

@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "616d84ded4a09c76ecfacb19"
+  },
+  "nombre": "Barcelona",
+  "localidad_id": 1,
+  "provincia_id": 1
+},{
+  "_id": {
+    "$oid": "616d84ead4a09c76ecfacb1a"
+  },
+  "nombre": "Lleida",
+  "localidad_id": 2,
+  "provincia_id": 7
+},{
+  "_id": {
+    "$oid": "616d84fbd4a09c76ecfacb1b"
+  },
+  "nombre": "Murcia",
+  "localidad_id": 3,
+  "provincia_id": 8
+},{
+  "_id": {
+    "$oid": "616d8503d4a09c76ecfacb1c"
+  },
+  "nombre": "Cáceres",
+  "localidad_id": 4,
+  "provincia_id": 9
+},{
+  "_id": {
+    "$oid": "616d850dd4a09c76ecfacb1d"
+  },
+  "nombre": "Madrid",
+  "localidad_id": 5,
+  "provincia_id": 2
+}]

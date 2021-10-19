@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "616d573ad4a09c76ecfacab1"
+  },
+  "nombre": "Manuel Fernandez",
+  "direccion_postal": {
+    "calle": "Calle Falsa 321",
+    "numero": 45,
+    "piso": 0,
+    "puerta": 5,
+    "ciudad": "Albacete",
+    "CP": 20934,
+    "pais": "España"
+  },
+  "telefono": "93883828",
+  "email": "fernandez@gmail.com",
+  "fecha_registro": {
+    "$date": "1990-08-20T22:00:00Z"
+  },
+  "recomendado_por": "Guillermo Román"
+},{
+  "_id": {
+    "$oid": "616dbfd2802b5aded9f0b35f"
+  },
+  "nombre": "Arturo González",
+  "direccion_postal": {
+    "calle": "Calle Rue",
+    "numero": 12,
+    "piso": 6,
+    "puerta": 1,
+    "ciudad": "Barcelona",
+    "CP": 80025,
+    "pais": "España"
+  },
+  "telefono": "2342312",
+  "email": "gonzalez@gmail.com",
+  "fecha_registro": {
+    "$date": "1980-02-20T22:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "616dc288802b5aded9f0b388"
+  },
+  "nombre": "Alberto Dominguez",
+  "direccion_postal": {
+    "calle": "No real",
+    "numero": 3,
+    "piso": 4,
+    "puerta": 1,
+    "ciudad": "Lugo",
+    "CP": 32934,
+    "pais": "España"
+  },
+  "telefono": "5555828",
+  "email": "dominguez@gmail.com",
+  "fecha_registro": {
+    "$date": "2020-08-20T22:00:00Z"
+  },
+  "recomendado_por": "Manuel Fernandez"
+}]

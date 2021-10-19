@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "616ef05c8a0e543887892742"
+  },
+  "playlist_id": "1",
+  "nombre": "Metal",
+  "fecha_creacion": {
+    "$date": "2021-09-20T22:00:00Z"
+  },
+  "estado": "activa",
+  "cancion_id": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+},{
+  "_id": {
+    "$oid": "616ef48d8a0e54388789274b"
+  },
+  "playlist_id": "2",
+  "nombre": "Rock Punk",
+  "fecha_creacion": {
+    "$date": "2020-07-20T22:00:00Z"
+  },
+  "estado": "borrada",
+  "cancion_id": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+},{
+  "_id": {
+    "$oid": "616ef4a18a0e54388789274c"
+  },
+  "playlist_id": "3",
+  "nombre": "Nu Metal",
+  "fecha_creacion": {
+    "$date": "2020-07-20T22:00:00Z"
+  },
+  "estado": "activa",
+  "cancion_id": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+}]

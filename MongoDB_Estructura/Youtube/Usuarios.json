@@ -1,0 +1,189 @@
+[{
+  "_id": {
+    "$oid": "616dc38c802b5aded9f0b395"
+  },
+  "usuario_id": 1,
+  "email": "usuario1@gmail.com",
+  "nombre": "Alberto Pérez",
+  "Videos_publicados": [
+    {}
+  ],
+  "fecha_nacimiento": "1994/04/02",
+  "sexo": "H",
+  "País": "España",
+  "CP": "30880",
+  "videos_liked": {
+    "video_id": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "videos_commented": {
+    "video_id": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "videos_disliked": {
+    "video_id": [
+      0
+    ]
+  },
+  "Playlist_id": [
+    1,
+    2
+  ],
+  "canales_creados": [
+    {
+      "canal_id": 1
+    }
+  ],
+  "canales_suscrito": [
+    {
+      "canal_id": 2
+    },
+    {
+      "canal_id": 3
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616dc424802b5aded9f0b396"
+  },
+  "usuario_id": 2,
+  "email": "usuario2@gmail.com",
+  "nombre": "Jesús González",
+  "Videos_publicados": [
+    {}
+  ],
+  "fecha_nacimiento": "1996/03/07",
+  "sexo": "H",
+  "País": "España",
+  "CP": "4880",
+  "videos_liked": {
+    "video_id": [
+      3,
+      4
+    ]
+  },
+  "videos_commented": {
+    "video_id": [
+      1,
+      4
+    ]
+  },
+  "videos_disliked": {
+    "video_id": [
+      1,
+      2
+    ]
+  },
+  "canales_creados": [
+    {
+      "canal_id": 2
+    }
+  ],
+  "canales_suscrito": [
+    {
+      "canal_id": 1
+    },
+    {
+      "canal_id": 3
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616dc44a802b5aded9f0b397"
+  },
+  "usuario_id": 3,
+  "email": "usuario3@gmail.com",
+  "nombre": "Leyre Jimenez",
+  "Videos_publicados": [
+    {
+      "video_id": 1
+    }
+  ],
+  "fecha_nacimiento": "200/04/02",
+  "sexo": "M",
+  "País": "Alemania",
+  "CP": "52323",
+  "videos_liked": {
+    "video_id": [
+      4
+    ]
+  },
+  "videos_commented": {
+    "video_id": [
+      1
+    ]
+  },
+  "videos_disliked": {
+    "video_id": []
+  },
+  "Playlist_id": [
+    3,
+    2
+  ],
+  "canales_creados": [
+    {}
+  ],
+  "canales_suscrito": [
+    {
+      "canal_id": 2
+    },
+    {
+      "canal_id": 3
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "616dc46a802b5aded9f0b398"
+  },
+  "usuario_id": 4,
+  "email": "usuario4@gmail.com",
+  "nombre": "Laura Carmona",
+  "Videos_publicados": [
+    {
+      "video_id": 3
+    }
+  ],
+  "fecha_nacimiento": "2001/11/22",
+  "sexo": "M",
+  "País": "Suiza",
+  "CP": "324233",
+  "videos_liked": {
+    "video_id": [
+      1,
+      2,
+      3
+    ]
+  },
+  "videos_commented": {
+    "video_id": []
+  },
+  "videos_disliked": {
+    "video_id": [
+      4
+    ]
+  },
+  "Playlist_id": [
+    2
+  ],
+  "canales_creados": [
+    {
+      "canal_id": 3
+    }
+  ],
+  "canales_suscrito": [
+    {
+      "canal_id": 1
+    },
+    {
+      "canal_id": 2
+    }
+  ]
+}]
