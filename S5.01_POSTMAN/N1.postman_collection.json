@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "70a9da9b-5203-4c5b-a844-f4b4bc101adf",
+		"name": "N1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tiendas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cuadros o Collares",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pictures/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pictures",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tienda por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cuadro por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pictures/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pictures",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Cuadros de una Tienda",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/4/pictures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"4",
+						"pictures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collares por id de Tienda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/4/pictures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"4",
+						"pictures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Tienda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/creadas?name=TiendaNueva&capacidadMaxima=42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"creadas"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "TiendaNueva"
+						},
+						{
+							"key": "capacidadMaxima",
+							"value": "42"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Cuadro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/1/pictures?name=NombreElegido&author=AutorElegido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"1",
+						"pictures"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "NombreElegido"
+						},
+						{
+							"key": "author",
+							"value": "AutorElegido"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
