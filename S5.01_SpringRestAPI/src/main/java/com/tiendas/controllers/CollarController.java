@@ -14,34 +14,53 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tiendas.models.Collar;
 import com.tiendas.models.Tienda;
+import com.tiendas.repositories.DataBaseJDBC;
 import com.tiendas.services.CollaresService;
 import com.tiendas.services.TiendasService;
 
 
 @RestController
 public class CollarController {
-	@Autowired
-	private CollaresService collaresService;
+	// PARA USAR LA BD H2, DESCOMENTAR
+//	@Autowired
+//	private CollaresService collaresService;
 	
-
+	@Autowired
+	private DataBaseJDBC db = new DataBaseJDBC();
 	
 	@GetMapping("/pictures/")
-	public List<Collar> getTiendas(){
-		return collaresService.getCollares();
+	public List<Collar> getCollares(){
+//		return collaresService.getCollares();
+		
+		return db.getCollares();
+		
+		
 	}
 	
 	@GetMapping("/pictures/{id}")
 	public Optional<Collar> getCollarById(@PathVariable Integer id){
-		return collaresService.getCollarById(id);
+//		return collaresService.getCollarById(id);
+		
+		return Optional.of(db.getCollar(id));
 	}
 	
 	
 	
 	
-	@PostMapping("/shops/{id}/pictures")
-	public void addCollar(@RequestParam String name, @RequestParam String author, Collar collar){
+	@PostMapping("/pictures/")
+	public String addCollar(@RequestParam String name, @RequestParam String author, Collar collar){
 		
-		collaresService.addCollar(collar);
+//		collaresService.addCollar(collar);
+		db.crearCollar(collar);
+		return "Cuadro creado correctamente";
+	}
+	
+	@PostMapping("/shops/{id}/pictures")
+	public String addCollarConFK(@RequestParam int tienda_id ,@RequestParam String name, @RequestParam String author, Collar collar){
+		
+//		collaresService.addCollar(collar);
+		db.crearCollarConFK(collar, tienda_id);
+		return "Cuadro creado correctamente";
 	}
 		
 

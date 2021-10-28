@@ -68,4 +68,17 @@ public class Tienda {
 	
 	public Tienda() {
 }
+
+	public Tienda(String string, int int1) {
+		// Creado para la BBDD JDBC
+		this.name= string;
+		this.capacidadMaxima= int1;
+	}
+
+	public Tienda(int int1, String string, int int2) {
+		// Creado para la BBDD JDBC
+		this.id= int1;
+		this.name=string;
+		this.capacidadMaxima=int2;
+	}
 }

@@ -1,0 +1,43 @@
+
+
+
+INSERT INTO TIENDAS (name, capacidadMaxima) VALUES ('Tienda1', 350),
+('Tienda2', 230),
+('Tienda3', 560),
+('Tienda4', 888),
+('Tienda5', 456),
+('Tienda6', 684),
+('Tienda7', 2345),
+('Tienda8', 3411) ;
+
+
+
+
+
+
+INSERT INTO COLLARES(name, author, price, arrival, tienda_id)
+				VALUES ( 'Soledad', null, 2005.3, (CURRENT_TIMESTAMP), 1),
+				( 'Soledad', null, 2005.3, (CURRENT_TIMESTAMP), 1),
+				( 'Soledad', 'Picasso', 1205.2, (CURRENT_TIMESTAMP), 1),
+				( 'Soledad', 'Van Gogh', 34005.3, (CURRENT_TIMESTAMP), 1),
+				( 'Reflejos', null, 5505,(CURRENT_TIMESTAMP), 2),
+				( 'Noche estrellada', 'Coronado', 7705, (CURRENT_TIMESTAMP), 2),
+				( 'Los jugadores de cartas', 'PAUL CÉZANNE', 10543, (CURRENT_TIMESTAMP), 2),
+				( 'Autorretrato', 'REMBRANDT VAN RIJN', 25233, (CURRENT_TIMESTAMP), 3),
+				( 'Soledad', null, 78675, (CURRENT_TIMESTAMP), 3),
+				( 'Autorretrato con boina', 'CLAUDE MONET', 974564, (CURRENT_TIMESTAMP), 3),
+				( 'ASDADWAD', null, 4534534, (CURRENT_TIMESTAMP), 4),
+				( 'awiodjawoid', 'WASSILY KANDINSKY', 346346,(CURRENT_TIMESTAMP), 4),
+				( 'Las Meninas', 'DIEGO VELÁZQUEZ', 123144, (CURRENT_TIMESTAMP), 4),
+				( 'iqweiqw', null, 234234, (CURRENT_TIMESTAMP), 5),
+				( 'Gioconda', 'Leonardo da Vinci', 765756, (CURRENT_TIMESTAMP), 5),
+				( 'AWDADOI', null, 12342, (CURRENT_TIMESTAMP), 5),
+				('Soledad', null, 236544, (CURRENT_TIMESTAMP), 6),
+				( 'Soledad', 'GIOTTO DI BONDONE', 657556, (CURRENT_TIMESTAMP), 6),
+				( 'Soledad    ', null, 34234, (CURRENT_TIMESTAMP), 6),
+				( 'Soledad', null, 453534, (CURRENT_TIMESTAMP), 7),
+				( 'qpwioeqp', 'TURNER', 23434.3, (CURRENT_TIMESTAMP), 7),
+				( 'piqowepqw', 'CARAVAGGIO', 11111, (CURRENT_TIMESTAMP), 7),
+				( 'Alegría', null, 43534.4, (CURRENT_TIMESTAMP), 8),
+				( 'Tristeza', 'VAN EYCK', 234324, (CURRENT_TIMESTAMP), 8),
+				( 'awiduaw', null, 345345.3, (CURRENT_TIMESTAMP), 8);

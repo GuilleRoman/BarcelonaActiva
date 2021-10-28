@@ -30,7 +30,7 @@ public class TiendasService {
 	}
 
 
-	public void addTienda(Tienda tienda) {
+	public void crearTienda(Tienda tienda) {
 		tiendasRepository.save(tienda);
 		
 	}

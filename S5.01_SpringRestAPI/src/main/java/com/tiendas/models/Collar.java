@@ -76,4 +76,19 @@ public class Collar {
 		this.tienda = tienda;
 	}
 	public Collar() {}
+	public Collar(String string, String string2, double double1, Date date) {
+		// Creado para la BBDD JDBC
+		this.name= string;
+		this.author= string2;
+		this.price= double1;
+		this.arrival=date;
+	}
+	public Collar(int int1, String string, String string2, double double1, Date date) {
+		// Creado para la BBDD JDBC
+		this.id=int1;
+		this.name=string;
+		this.author=string2;
+		this.price=double1;
+		this.arrival=date;
+	}
 }
