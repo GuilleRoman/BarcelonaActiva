@@ -50,7 +50,7 @@ public class FranquiciaController {
 
 
 	@GetMapping("shops/{id}")
-	public Optional<Tienda> getTiendaById(@PathVariable Integer id){
+	public Optional<Tienda> getTiendaById(@PathVariable("id") Integer id){
 		return tiendasService.getTiendaById(id);
 
 	}
@@ -97,7 +97,7 @@ public class FranquiciaController {
 	}
 
 	@GetMapping("/pictures/{id}")
-	public Optional<Collar> getCollarById(@PathVariable Integer id){
+	public Optional<Collar> getCollarById(@PathVariable("id") Integer id){
 		return collaresService.getCollarById(id);
 
 

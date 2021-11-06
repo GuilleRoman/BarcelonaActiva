@@ -36,7 +36,6 @@ public class TestController{
 	}
 
 	@Test
-	@DisplayName("Comprobar getTiendas()")
 	public void testGetTiendas() throws Exception {
 		mockMvc.perform(get("/shops")).andExpect(status().isOk())
 				.andExpect(content().contentType("application/json"))
@@ -48,7 +47,6 @@ public class TestController{
 	}
 	
 	@Test
-	@DisplayName("Comprobar getCuadrosTienda()")
 	public void testGetCuadrosTienda() throws Exception {
 		mockMvc.perform(get("/shops/1/pictures")).andExpect(status().isOk())
 			.andExpect(content().contentType("application/json"))
