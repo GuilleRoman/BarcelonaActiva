@@ -20,4 +20,6 @@ public class PlayerService {
 		// TODO Auto-generated method stub
 		db.save(player);
 	}
+
+
 }

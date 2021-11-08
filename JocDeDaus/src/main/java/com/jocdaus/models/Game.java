@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="games")
@@ -16,9 +17,10 @@ public class Game {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne(targetEntity=Player.class)
+	@OneToMany(targetEntity=Player.class)
 	@JoinColumn(name="player_id")
 	private List<Player> players;
+	
 	private HashMap<Player, Integer> rolls;
 	private String winner;
 	private String loser;

@@ -1,6 +1,7 @@
 package com.jocdaus.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,7 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="players")
@@ -26,6 +29,10 @@ public class Player {
 	private List<Dice> dices;
 	private int currentRoll;
 	private int previousRolls;
+	@OneToMany(targetEntity=Game.class, mappedBy="game")
+	private ArrayList<Game> games;
+	@OneToOne(targetEntity=Game.class, mappedBy="game")
+	private Game currentGame;
 	@Column
 	private HashMap<String, Integer> rolls;
 	@Column
@@ -101,6 +108,12 @@ public class Player {
 		}
 		this.previousRolls=currentRoll;
 		this.currentRoll= result;
+		if(result==7) {
+			this.currentGame.setWinner(getName());
+		}else {
+			this.currentGame.setLoser(getName());
+		}
+		this.games.add(currentGame);
 		this.rolls.put("Roll nº: "+this.rollCounter, result);
 		this.rollCounter++;
 		return result;

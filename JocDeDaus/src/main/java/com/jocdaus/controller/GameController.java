@@ -26,22 +26,26 @@ public class GameController {
 	DiceService diceService;
 	
 	@GetMapping("/")
-	public String login(Model model) {
+	public String login(Model model, Player player) {
+		
 		return "login";
 	}
 	@PostMapping("/players")
 	public String createPlayer(Player player, Model model) {
 		playerService.createPlayer(player);
+		model.addAttribute("Player", player);
 		return "login";
 	}
 	
 	@PutMapping("/players")
-	public void modifyPlayer(Player player) {
+	public void modifyPlayer(Player player, Model model) {
 		playerService.modifyPlayer(player);
+		model.addAttribute("Player", player);
 	}
 	
 	@PostMapping("/players/{id}/games/")
 	public void rollDices(Player player, @PathVariable("id") int id) {
 		playerService.modifyPlayer(player);
+		player.rollDices();
 	}
 }

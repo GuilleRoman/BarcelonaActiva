@@ -1,5 +1,6 @@
 package com.jocdaus.models;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.persistence.Entity;
@@ -20,7 +21,10 @@ public class Dice {
 	@ManyToOne(targetEntity=Player.class)
 	@JoinColumn(name="player_id")
 	private Player player;
+	private HashMap<String, Integer> rolls;
 	private int result;
+
+	private String rollCounter;
 	public Player getPlayer() {
 		return player;
 	}
@@ -44,6 +48,7 @@ public class Dice {
 		int low = 1;
 		int high = 6;
 		int result = r.nextInt(high-low) + low;
+		this.rolls.put("Roll nº: "+this.rollCounter, result);
 		return result;
 	}
 }
