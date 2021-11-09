@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.jocdaus.controller.GameController;
 @Entity
 @Table(name="players")
 public class Player {
@@ -23,22 +25,23 @@ public class Player {
 	
 	@Column
 	private Date registerDate;
-	@Column
+	@Column(columnDefinition = "varchar(255) default 'ANONIMO'")
 	private String name;
+	
 	@OneToMany(mappedBy="player")
 	private List<Dice> dices;
+	
 	private int currentRoll;
-	private int previousRolls;
-	@OneToMany(targetEntity=Game.class, mappedBy="game")
-	private ArrayList<Game> games;
-	@OneToOne(targetEntity=Game.class, mappedBy="game")
-	private Game currentGame;
+	
+	@OneToMany(targetEntity=Game.class)
+	private List<Game> gamesPlayed;
+	
 	@Column
-	private HashMap<String, Integer> rolls;
+	private HashMap<Game, Integer> rolls;
 	@Column
 	private double winRate;
 	
-	private int rollCounter=0;
+//	private int rollCounter=0;
 	public int getId() {
 		return id;
 	}
@@ -69,16 +72,11 @@ public class Player {
 	public void setCurrentRoll(int currentRoll) {
 		this.currentRoll = currentRoll;
 	}
-	public int getPreviousRolls() {
-		return previousRolls;
-	}
-	public void setPreviousRolls(int previousRolls) {
-		this.previousRolls = previousRolls;
-	}
-	public HashMap<String, Integer> getRolls() {
+
+	public HashMap<Game, Integer> getRolls() {
 		return rolls;
 	}
-	public void setRolls(HashMap<String, Integer> rolls) {
+	public void setRolls(HashMap<Game, Integer> rolls) {
 		this.rolls = rolls;
 	}
 	public double getWinRate() {
@@ -92,30 +90,50 @@ public class Player {
 		this.dices.add(dice);
 	}
 
-	public Player(int id, Date registerDate, String name, List<Dice> dices) {
+	public Player( Date registerDate, String name, List<Dice> dices) {
 		super();
-		this.id = id;
+	
 		this.registerDate = registerDate;
 		this.name = name;
 		this.dices = dices;
+//		GameController.players.add(this);
+
 	}
+	
+	public Player( Date registerDate, String name, int currentRoll) {
+		super();
+	
+		this.registerDate = registerDate;
+		this.name = name;
+		this.currentRoll=currentRoll;
+//		GameController.players.add(this);
+
+	}
+	
 	public Player() {};
 	
 	public  int rollDices() {
+		// Definimos una partida actual que elabora toda la lógica del programa y le añadimos este jugador
+		//mediante "this". El método lanza ambos dados, si el resultado de la suma es 7, añadimos ganador,
+		// de lo contrario, perdedor. Además, añadimos la partida a la lista de partidas del jugador y
+		// añadimos la tirada al hashmap que contiene la partida junto al resultado.
+		 Game currentGame = new Game(this);
+		 
 		int result=0;
 		for(Dice d: dices) {
 			result =result+d.rollDice();
 		}
-		this.previousRolls=currentRoll;
+	
 		this.currentRoll= result;
 		if(result==7) {
-			this.currentGame.setWinner(getName());
+			currentGame.setWinner(getName());
 		}else {
-			this.currentGame.setLoser(getName());
+			currentGame.setLoser(getName());
 		}
-		this.games.add(currentGame);
-		this.rolls.put("Roll nº: "+this.rollCounter, result);
-		this.rollCounter++;
+		this.currentRoll=result;
+		this.gamesPlayed.add(currentGame);
+		this.rolls.put(currentGame, result);
+//		this.rollCounter++;
 		return result;
 	}
 }

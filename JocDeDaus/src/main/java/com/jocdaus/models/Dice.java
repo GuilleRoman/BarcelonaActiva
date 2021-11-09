@@ -41,6 +41,11 @@ public class Dice {
 		super();
 		this.player = player;
 	}
+	public Dice(Player player, int result) {
+		super();
+		this.player = player;
+		this.result=result;
+	}
 	
 	
 	public int rollDice() {

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="games")
@@ -17,11 +18,9 @@ public class Game {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(targetEntity=Player.class)
+	@ManyToOne(targetEntity=Player.class)
 	@JoinColumn(name="player_id")
-	private List<Player> players;
-	
-	private HashMap<Player, Integer> rolls;
+	private Player player;
 	private String winner;
 	private String loser;
 	public int getId() {
@@ -30,17 +29,12 @@ public class Game {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public List<Player> getPlayers() {
-		return players;
+
+	public Player getPlayer() {
+		return player;
 	}
-	public void setPlayers(List<Player> players) {
-		this.players = players;
-	}
-	public HashMap<Player, Integer> getRolls() {
-		return rolls;
-	}
-	public void setRolls(HashMap<Player, Integer> rolls) {
-		this.rolls = rolls;
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 	public String getWinner() {
 		return winner;
@@ -54,10 +48,18 @@ public class Game {
 	public void setLoser(String loser) {
 		this.loser = loser;
 	}
-	public Game(int id, List<Player> players) {
+	public Game( Player player) {
 		super();
-		this.id = id;
-		this.players = players;
+		
+		this.player = player;
+	}
+	
+	public Game( Player player, String winner, String loser) {
+		super();
+		
+		this.player = player;
+		this.winner= winner;
+		this.loser=loser;
 	}
 	
 	

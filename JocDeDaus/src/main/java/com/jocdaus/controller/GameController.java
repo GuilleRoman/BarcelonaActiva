@@ -1,6 +1,10 @@
 package com.jocdaus.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +18,10 @@ import com.jocdaus.services.DiceService;
 import com.jocdaus.services.GameService;
 import com.jocdaus.services.PlayerService;
 
-@RestController
+@Controller
 @RequestMapping("")
 public class GameController {
+	
 	
 	@Autowired
 	PlayerService playerService;
@@ -44,8 +49,54 @@ public class GameController {
 	}
 	
 	@PostMapping("/players/{id}/games/")
-	public void rollDices(Player player, @PathVariable("id") int id) {
+	public String rollDices(Player player, @PathVariable("id") int id, Model model) {
+	
 		playerService.modifyPlayer(player);
 		player.rollDices();
+		model.addAttribute("hashmap", player.getRolls());
+		return "game";
 	}
+	
+	@GetMapping("/players/{id}/games/")
+	public String getPlayerRolls(Player player, @PathVariable("id") int id, Model model) {
+		playerService.modifyPlayer(player);
+		model.addAttribute("Player", player);
+		model.addAttribute("hashmap", player.getRolls());
+		return "game";
+	}
+	
+	@GetMapping("/players/ranking")
+	public String getRanking(Player player, @PathVariable("id") int id, Model model) {
+		playerService.modifyPlayer(player);
+		model.addAttribute("Player", player);
+		model.addAttribute("hashmap", player.getRolls());
+		return "game";
+	}
+	
+	@GetMapping("/players/")
+	public String getPlayersInfo( Model model) {
+		List<Player>players= (ArrayList<Player>) playerService.getPlayers();
+		model.addAttribute("players", players);
+		
+		return "players";
+	}
+	
+	@GetMapping("/players/ranking/loser")
+	public String getLoser(Player player, @PathVariable("id") int id, Model model) {
+		playerService.modifyPlayer(player);
+		model.addAttribute("Player", player);
+		model.addAttribute("hashmap", player.getRolls());
+		return "game";
+	}
+	
+	@GetMapping("/players/ranking/winner")
+	public String getWinner(Player player, @PathVariable("id") int id, Model model) {
+		playerService.modifyPlayer(player);
+		model.addAttribute("Player", player);
+		model.addAttribute("hashmap", player.getRolls());
+		return "game";
+	}
+	
+	
+	
 }
