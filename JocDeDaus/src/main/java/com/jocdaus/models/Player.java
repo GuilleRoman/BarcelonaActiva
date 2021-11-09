@@ -112,6 +112,13 @@ public class Player {
 	
 	public Player() {};
 	
+	public Player( String name) {
+		super();
+		this.name = name;
+
+	}
+	
+	
 	public  int rollDices() {
 		// Definimos una partida actual que elabora toda la lógica del programa y le añadimos este jugador
 		//mediante "this". El método lanza ambos dados, si el resultado de la suma es 7, añadimos ganador,

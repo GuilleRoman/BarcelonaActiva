@@ -31,15 +31,30 @@ public class GameController {
 	DiceService diceService;
 	
 	@GetMapping("/")
-	public String login(Model model, Player player) {
-		
+	public String start(Model model) {
+		model.addAttribute("button","/players" );
+		model.addAttribute("button1","/" );
+		model.addAttribute("player", new Player());
+		model.addAttribute("players", playerService.getPlayers());
 		return "login";
 	}
+	
+//	@PostMapping("/")
+//	public String login(Model model, Player player) {
+//		model.addAttribute("player", new Player() );
+//		model.addAttribute("button","/players" );
+//		model.addAttribute("button1","/" );
+//		return "login";
+//	}
+	
+	
 	@PostMapping("/players")
 	public String createPlayer(Player player, Model model) {
+		model.addAttribute("button1","/" );
 		playerService.createPlayer(player);
+		model.addAttribute("players", playerService.getPlayers());
 		model.addAttribute("Player", player);
-		return "login";
+		return "players";
 	}
 	
 	@PutMapping("/players")
@@ -77,7 +92,7 @@ public class GameController {
 	public String getPlayersInfo( Model model) {
 		List<Player>players= (ArrayList<Player>) playerService.getPlayers();
 		model.addAttribute("players", players);
-		
+		model.addAttribute("button1","/" );
 		return "players";
 	}
 	

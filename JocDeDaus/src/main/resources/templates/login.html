@@ -18,20 +18,22 @@
 			
 		</div>
 		<h2 style="font-family: Garamond, serif;" th:text="${titulo}"></h2><br>
-			<form  action="/" method="post">
+			<form  action="/players" th:object="${player}" method="post">
 				<div class="form-group">
 					<label for="playername">Player's username</label>
-					<input type="text" class="form-control" id="playername" placeholder="Enter username">
+					<input type="text" class="form-control" th:field="*{name}" placeholder="Enter username">
 				</div>
 				 <div class="form-group">
 				    <label for="password">Password</label>
 				    <input type="password" class="form-control" id="password" placeholder="Password">
 				 </div>
 				 <br>
-				<button type="submit" name="submit" class="btn btn-success" value=login>Login</button>
+				<form  action="/players/" th:object="${player}" method="get">
+					<button type="submit" name="login" class="btn btn-success">Login</button>
+				</form>
 				<br>
-				<br>
-				<button type="submit" name="register" class="btn btn-primary" action="/createPlayer" value=register>Register</button>
+				
+				<button type="submit" name="register" class="btn btn-primary">Register</button>
 				
 			</form>	
 		</div>
