@@ -24,17 +24,19 @@
 			<h3>Game: <span th:text="${game.id}"></span>   Player: <span th:text="${player.name}"></span></h3>	
 			<br>
 			
-			<table border=1 class="table" th:object="${player}">
+			<table border=1 class="table">
 			<thead class="thead-light">
-				<tr><th>Roll nº<th>Value<th>
+				<tr><th>Game ID<th>Player ID<th>Result<th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${#lists.isEmpty(hashmap)}">
-					<td colspan="2">This Player hasn't played yet </td>
+				<tr th:if="${#lists.isEmpty(rolls)}">
+					<td colspan="2"> No employees available </td>
 					</tr>
-					<tr th:each="entry: ${hashmap}">
-					<span th:text="${entry.key}"></span> = <span th:text="${entry.value}"></span>
+					<tr th:each="roll: ${rolls}">
+					<td><span th:text="${rolls.game_id}"></span></td>
+					<td><span th:text="${rolls.player_id}"></span></td>
+					<td><span th:text="${rolls.result}"></span></td>
 					
 				</tr>
 			
@@ -42,6 +44,12 @@
 		
 		
 		</table>
+			
+			
+			
+			
+			
+			
 			
 			
 		<form th:action="@{/players/{id}/games/(id = ${player.id})}" method="post" th:object="${player}">

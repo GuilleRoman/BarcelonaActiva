@@ -23,6 +23,15 @@ public class Game {
 	private Player player;
 	private String winner;
 	private String loser;
+	@OneToOne(mappedBy = "game")
+	private Roll rolls;
+	
+	public Roll getRolls() {
+		return rolls;
+	}
+	public void setRolls(Roll rolls) {
+		this.rolls = rolls;
+	}
 	public int getId() {
 		return id;
 	}

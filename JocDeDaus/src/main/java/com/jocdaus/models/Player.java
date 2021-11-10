@@ -31,17 +31,27 @@ public class Player {
 	@OneToMany(mappedBy="player")
 	private List<Dice> dices;
 	
-	private int currentRoll;
 	
 	@OneToMany(targetEntity=Game.class)
 	private List<Game> gamesPlayed;
 	
 	@Column
-	private HashMap<Game, Integer> rolls;
-	@Column
 	private double winRate;
+	@OneToMany(mappedBy = "player")
+	private List<Roll> rolls;
 	
-//	private int rollCounter=0;
+	public List<Game> getGamesPlayed() {
+		return gamesPlayed;
+	}
+	public void setGamesPlayed(List<Game> gamesPlayed) {
+		this.gamesPlayed = gamesPlayed;
+	}
+	public List<Roll> getRolls() {
+		return rolls;
+	}
+	public void setRolls(List<Roll> rolls) {
+		this.rolls = rolls;
+	}
 	public int getId() {
 		return id;
 	}
@@ -66,19 +76,7 @@ public class Player {
 	public void setDices(List<Dice> dices) {
 		this.dices = dices;
 	}
-	public int getCurrentRoll() {
-		return currentRoll;
-	}
-	public void setCurrentRoll(int currentRoll) {
-		this.currentRoll = currentRoll;
-	}
 
-	public HashMap<Game, Integer> getRolls() {
-		return rolls;
-	}
-	public void setRolls(HashMap<Game, Integer> rolls) {
-		this.rolls = rolls;
-	}
 	public double getWinRate() {
 		return winRate;
 	}
@@ -100,13 +98,12 @@ public class Player {
 
 	}
 	
-	public Player( Date registerDate, String name, int currentRoll) {
+	public Player( Date registerDate, String name) {
 		super();
 	
 		this.registerDate = registerDate;
 		this.name = name;
-		this.currentRoll=currentRoll;
-//		GameController.players.add(this);
+
 
 	}
 	
@@ -131,16 +128,15 @@ public class Player {
 			result =result+d.rollDice();
 		}
 	
-		this.currentRoll= result;
+	
 		if(result==7) {
 			currentGame.setWinner(getName());
 		}else {
 			currentGame.setLoser(getName());
 		}
-		this.currentRoll=result;
+		
 		this.gamesPlayed.add(currentGame);
-		this.rolls.put(currentGame, result);
-//		this.rollCounter++;
+		 ((Roll) this.rolls).setResult(result);
 		return result;
 	}
 }

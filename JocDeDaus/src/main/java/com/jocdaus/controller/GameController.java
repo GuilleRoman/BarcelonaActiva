@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jocdaus.models.Game;
 import com.jocdaus.models.Player;
+import com.jocdaus.models.Roll;
 import com.jocdaus.services.DiceService;
 import com.jocdaus.services.GameService;
 import com.jocdaus.services.PlayerService;
@@ -77,7 +78,8 @@ public class GameController {
 			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);
 			model.addAttribute("game", new Game());
-			model.addAttribute("hashmap", player.getRolls());
+			List<Roll> rolls =  player.getRolls();
+			model.addAttribute("rolls", rolls);
 			return "game";
 		}
 		return "game";
@@ -89,10 +91,12 @@ public class GameController {
 		Optional<Player> optionalPlayer= playerService.searchById(id);
 		if(optionalPlayer.isPresent()) {
 			player= optionalPlayer.get();
+			List<Roll> rolls = player.getRolls();
+			model.addAttribute("rolls", rolls);
 			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);
 			model.addAttribute("game", new Game());
-			model.addAttribute("hashmap", player.getRolls());
+			
 			return "game";
 		}
 		return "game";
@@ -102,7 +106,7 @@ public class GameController {
 	public String getRanking(Player player, @PathVariable("id") int id, Model model) {
 		playerService.modifyPlayer(player);
 		model.addAttribute("Player", player);
-		model.addAttribute("hashmap", player.getRolls());
+		
 		return "game";
 	}
 	
@@ -118,7 +122,7 @@ public class GameController {
 	public String getLoser(Player player, @PathVariable("id") int id, Model model) {
 		playerService.modifyPlayer(player);
 		model.addAttribute("Player", player);
-		model.addAttribute("hashmap", player.getRolls());
+		
 		return "game";
 	}
 	
@@ -126,7 +130,7 @@ public class GameController {
 	public String getWinner(Player player, @PathVariable("id") int id, Model model) {
 		playerService.modifyPlayer(player);
 		model.addAttribute("Player", player);
-		model.addAttribute("hashmap", player.getRolls());
+		
 		return "game";
 	}
 	

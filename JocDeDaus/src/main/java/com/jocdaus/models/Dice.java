@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,47 +22,43 @@ public class Dice {
 	@ManyToOne(targetEntity=Player.class)
 	@JoinColumn(name="player_id")
 	private Player player;
-	private HashMap<String, Integer> rolls;
-	private int result;
+	@OneToOne(mappedBy = "dices")
+	private Roll rolls;
 
-	private String rollCounter;
+	
+	public Roll getRolls() {
+		return rolls;
+	}
+	public void setRolls(Roll rolls) {
+		this.rolls = rolls;
+	}
 	public Player getPlayer() {
 		return player;
 	}
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	public int getResult() {
-		return result;
-	}
-	public void setResult(int result) {
-		this.result = result;
-	}
+	
+	
 	public Dice(Player player) {
 		super();
 		this.player = player;
-	}
-	public Dice(Player player, int result) {
-		super();
-		this.player = player;
-		this.result=result;
+		
 	}
 	
 	public Dice() {super();}
-	public Dice(int id, Player player, HashMap<String, Integer> rolls, int result, String rollCounter) {
+	public Dice(int id, Player player,  int result) {
 		super();
 		this.id = id;
 		this.player = player;
-		this.rolls = rolls;
-		this.result = result;
-		this.rollCounter = rollCounter;
+		
+		
 	}
 	public int rollDice() {
 		Random r = new Random();
 		int low = 1;
 		int high = 6;
 		int result = r.nextInt(high-low) + low;
-		this.rolls.put("Roll nº: "+this.rollCounter, result);
 		return result;
 	}
 }
