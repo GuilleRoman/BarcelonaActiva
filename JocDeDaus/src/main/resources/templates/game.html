@@ -21,7 +21,7 @@
 			<tr th:if="${game ne null}">
 					<td colspan="2">The game haven't started yet </td>
 					</tr>
-			<h3>Game: <span th:text="${game.id}"></span>   Player: <span th:text="${player.name}"></span><span th:text="${player.id}"></span></h3>	
+			<h3>Game: <span th:text="${game.id}"></span>   Player: <span th:text="${player.name}"></span></h3>	
 			<br>
 			
 			<table border=1 class="table" th:object="${player}">
@@ -44,24 +44,18 @@
 		</table>
 			
 			
-		<form th:action="@{/players/{id}/games/}+ ${player.id}" method="post" th:object="${player}">
-			<button type="submit" name="roll" class="btn btn-success">Roll The Dice!</button>
+		<form th:action="@{/players/{id}/games/(id = ${player.id})}" method="post" th:object="${player}">
+			<button type="submit" name="roll" class="btn btn-success" th:href="@{/players/{id}/games/(id = ${player.id})}">Roll The Dice!</button>
 		</form>
 		<br><br>
 		
 		<form  action="/" method="get">
-		<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
-		</form>
+			<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
+		</form>	
+		</div>	
 		
 			
-		
-		
-		
-			
-
-		
-		</div>
-	
-		
 	</body>
+	
+	
 </html>

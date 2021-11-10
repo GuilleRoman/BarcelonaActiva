@@ -66,21 +66,35 @@ public class GameController {
 	}
 	
 	@PostMapping("/players/{id}/games/")
-	public String rollDices(Player player, @PathVariable("id") int id, Model model) {
+	public String rollDices( @PathVariable("id") int id, Model model) {
 	
-		playerService.modifyPlayer(player);
-		player.rollDices();
+		Player player;
+		Optional<Player> optionalPlayer= playerService.searchById(id);
 		
-		model.addAttribute("hashmap", player.getRolls());
+		if(optionalPlayer.isPresent()) {
+			player= optionalPlayer.get();
+			player.rollDices();
+			model.addAttribute("dices", player.getDices());
+			model.addAttribute("player", player);
+			model.addAttribute("game", new Game());
+			model.addAttribute("hashmap", player.getRolls());
+			return "game";
+		}
 		return "game";
 	}
 	
 	@GetMapping("/players/{id}/games/")
 	public String getPlayerRolls( @PathVariable("id") int id, Model model) {
-		Optional<Player> player= playerService.searchById(id);
-		model.addAttribute("Player", player);
-		model.addAttribute("game", new Game());
-		model.addAttribute("hashmap", player.getRolls());
+		Player player;
+		Optional<Player> optionalPlayer= playerService.searchById(id);
+		if(optionalPlayer.isPresent()) {
+			player= optionalPlayer.get();
+			model.addAttribute("dices", player.getDices());
+			model.addAttribute("player", player);
+			model.addAttribute("game", new Game());
+			model.addAttribute("hashmap", player.getRolls());
+			return "game";
+		}
 		return "game";
 	}
 	

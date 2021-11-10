@@ -47,7 +47,15 @@ public class Dice {
 		this.result=result;
 	}
 	
-	
+	public Dice() {super();}
+	public Dice(int id, Player player, HashMap<String, Integer> rolls, int result, String rollCounter) {
+		super();
+		this.id = id;
+		this.player = player;
+		this.rolls = rolls;
+		this.result = result;
+		this.rollCounter = rollCounter;
+	}
 	public int rollDice() {
 		Random r = new Random();
 		int low = 1;
