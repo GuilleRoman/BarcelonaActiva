@@ -18,19 +18,19 @@
 				<h1>Dice Game</h1>
 				<br>
 			</div>
-			<tr th:if="${game.empty}">
+			<tr th:if="${game ne null}">
 					<td colspan="2">The game haven't started yet </td>
 					</tr>
 			<h3>Game: <span th:text="${game.id}"></span>   Player: <span th:text="${player.name}"></span><span th:text="${player.id}"></span></h3>	
 			<br>
 			
-			<table border=1 class="table">
+			<table border=1 class="table" th:object="${player}">
 			<thead class="thead-light">
 				<tr><th>Roll nº<th>Value<th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${hashmap.empty}">
+				<tr th:if="${#lists.isEmpty(hashmap)}">
 					<td colspan="2">This Player hasn't played yet </td>
 					</tr>
 					<tr th:each="entry: ${hashmap}">
@@ -44,10 +44,14 @@
 		</table>
 			
 			
-			
-		<a class="btn btn-success" th:href="@{/players/{id}/games/}+${player.id}">Roll The Dice!</a>
+		<form th:action="@{/players/{id}/games/}+ ${player.id}" method="post" th:object="${player}">
+			<button type="submit" name="roll" class="btn btn-success">Roll The Dice!</button>
+		</form>
 		<br><br>
-		<a class="btn btn-info" th:href="@{/login}">Return to Login</a>
+		
+		<form  action="/" method="get">
+		<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
+		</form>
 		
 			
 		

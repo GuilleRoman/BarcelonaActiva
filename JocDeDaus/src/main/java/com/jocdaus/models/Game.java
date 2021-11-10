@@ -61,6 +61,9 @@ public class Game {
 		this.winner= winner;
 		this.loser=loser;
 	}
+	public Game() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 	

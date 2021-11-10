@@ -2,6 +2,7 @@ package com.jocdaus.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jocdaus.models.Game;
 import com.jocdaus.models.Player;
 import com.jocdaus.services.DiceService;
 import com.jocdaus.services.GameService;
@@ -68,14 +70,16 @@ public class GameController {
 	
 		playerService.modifyPlayer(player);
 		player.rollDices();
+		
 		model.addAttribute("hashmap", player.getRolls());
 		return "game";
 	}
 	
 	@GetMapping("/players/{id}/games/")
-	public String getPlayerRolls(Player player, @PathVariable("id") int id, Model model) {
-		playerService.modifyPlayer(player);
+	public String getPlayerRolls( @PathVariable("id") int id, Model model) {
+		Optional<Player> player= playerService.searchById(id);
 		model.addAttribute("Player", player);
+		model.addAttribute("game", new Game());
 		model.addAttribute("hashmap", player.getRolls());
 		return "game";
 	}

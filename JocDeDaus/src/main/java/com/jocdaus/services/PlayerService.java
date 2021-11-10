@@ -1,6 +1,7 @@
 package com.jocdaus.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,11 @@ public class PlayerService {
 	public List<Player> getPlayers() {
 		
 		return db.findAll();
+	}
+
+	public Optional<Player> searchById(int id) {
+		// TODO Auto-generated method stub
+		return db.findById(id);
 	}
 
 
