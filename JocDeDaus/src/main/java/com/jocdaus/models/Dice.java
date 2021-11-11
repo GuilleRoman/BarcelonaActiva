@@ -1,8 +1,11 @@
 package com.jocdaus.models;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +29,10 @@ public class Dice {
 	//era one to one
 //	@OneToMany(mappedBy = "dices")
 //	private Roll rolls;
-
 	
+//	@Column
+//	@ElementCollection(targetClass=Integer.class)
+//	private List<Integer>results;
 //	public Roll getRolls() {
 //		return rolls;
 //	}
@@ -60,7 +65,8 @@ public class Dice {
 		Random r = new Random();
 		int low = 1;
 		int high = 6;
-		int result = r.nextInt(high-low) + low;
+		int result = r.nextInt(high-low+1) + low;
+//		this.results.add(result);
 		return result;
 	}
 }

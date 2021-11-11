@@ -35,6 +35,11 @@ public class PlayerService {
 		return db.findById(id);
 	}
 
+	public void update(Player player) {
+		db.save(player);
+		
+	}
+
 	
 
 

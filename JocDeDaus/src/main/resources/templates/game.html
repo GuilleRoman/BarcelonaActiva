@@ -26,7 +26,7 @@
 			
 			<table border=1 class="table">
 			<thead class="thead-light">
-				<tr><th>Game ID<th>Player ID<th>Result<th>
+				<tr><th>Game ID<th>Player ID<th>Dice 1<th>Dice 2<th>Final Result!<th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +36,8 @@
 					<tr th:each="roll: ${rolls}">
 					<td><span th:text="${roll.game.id}"></span></td>
 					<td><span th:text="${roll.player.name}"></span></td>
+					<td><span th:text="${roll.resultdice1}"></span></td>
+					<td><span th:text="${roll.resultdice2}"></span></td>
 					<td><span th:text="${roll.result}"></span></td>
 					
 				</tr>

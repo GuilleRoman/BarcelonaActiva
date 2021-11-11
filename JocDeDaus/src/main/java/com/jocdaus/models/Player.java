@@ -29,7 +29,7 @@ public class Player {
 	private String name;
 	
 	@OneToMany(mappedBy="player")
-	private List<Dice> dices;
+	private List<Dice> dices= new ArrayList<Dice>();
 	
 	
 	@OneToMany(targetEntity=Game.class)
@@ -103,7 +103,10 @@ public class Player {
 	
 		this.registerDate = registerDate;
 		this.name = name;
-
+//		Dice dice1= new Dice(this);
+//		Dice dice2= new Dice(this);
+//		this.dices.add(dice1);
+//		this.dices.add(dice2);
 
 	}
 	
@@ -112,6 +115,10 @@ public class Player {
 	public Player( String name) {
 		super();
 		this.name = name;
+		Dice dice1= new Dice(this);
+		Dice dice2= new Dice(this);
+		this.dices.add(dice1);
+		this.dices.add(dice2);
 
 	}
 	

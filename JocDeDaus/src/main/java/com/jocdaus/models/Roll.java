@@ -34,6 +34,25 @@ public class Roll {
 	
 	@Column(columnDefinition = "integer not null default 0")
 	private int result;
+	@Column(columnDefinition = "integer not null default 0")
+	private int resultdice1;
+	@Column(columnDefinition = "integer not null default 0")
+	private int resultdice2;
+	
+	
+	
+	public int getResultdice1() {
+		return resultdice1;
+	}
+	public void setResultdice1(int resultdice1) {
+		this.resultdice1 = resultdice1;
+	}
+	public int getResultdice2() {
+		return resultdice2;
+	}
+	public void setResultdice2(int resultdice2) {
+		this.resultdice2 = resultdice2;
+	}
 	public int getId() {
 		return id;
 	}
@@ -69,11 +88,40 @@ public class Roll {
 		
 		this.game = game;
 		this.player = player;
-//		this.dices = player.getDices();
-		this.result= player.rollDices();
+//		this.resultdice1=player.getDices().get(0).rollDice();
+//		this.resultdice2=player.getDices().get(1).rollDice();
+//		this.result= resultdice1 + resultdice2;
+		
 	}
 	public Roll() {
 		super();
+	}
+	
+	public void rollDices() {
+		
+		 
+		int result=0;
+		int sum=0;
+		for(Dice d: this.player.getDices()) {
+			
+			result= d.rollDice();
+			sum=sum+result;
+			
+			if (d.equals(player.getDices().get(0))) {
+				this.resultdice1 = result;
+			}else if(d.equals(player.getDices().get(1))) {
+				this.resultdice2 = result;
+			}
+			
+		}
+		this.result=sum;
+		if(sum==7) {
+			this.game.setWinner(this.getPlayer().getName());
+		}else {
+			this.game.setLoser(this.getPlayer().getName());
+		}
+	
+
 	}
 	
 }

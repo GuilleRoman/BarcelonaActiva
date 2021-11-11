@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jocdaus.models.Dice;
 import com.jocdaus.models.Game;
 import com.jocdaus.models.Player;
 import com.jocdaus.models.Roll;
@@ -45,21 +46,21 @@ public class GameController {
 		return "login";
 	}
 	
-//	@PostMapping("/")
-//	public String login(Model model, Player player) {
-//		model.addAttribute("player", new Player() );
-//		model.addAttribute("button","/players" );
-//		model.addAttribute("button1","/" );
-//		return "login";
-//	}
-	
 	
 	@PostMapping("/players")
 	public String createPlayer(Player player, Model model) {
-		model.addAttribute("button1","/" );
+		
 		playerService.createPlayer(player);
+		
+		Dice dice1= new Dice(player);
+		Dice dice2= new Dice(player);
+		
+		playerService.update(player);
+		diceService.createDice(dice1);
+		diceService.createDice(dice2);
+		
 		model.addAttribute("players", playerService.getPlayers());
-		model.addAttribute("Player", player);
+		model.addAttribute("player", player);
 		return "players";
 	}
 	
@@ -71,38 +72,23 @@ public class GameController {
 	
 	@PostMapping("/players/{id}/games/")
 	public String rollDices( @PathVariable int id, Model model) {
-			
-		Game game = new Game();
-		gameService.save(game);
-		Roll roll = new Roll ();
-		rollService.save(roll);
-		
 		Player player;
 		Optional<Player> optionalPlayer= playerService.searchById(id);
 		player= optionalPlayer.get();
 		
-		game.setPlayer(player);
-		
-		roll.setGame(game);
-		roll.setPlayer(player);
+		Game game = new Game(player);
 		gameService.save(game);
-		rollService.save(roll);
-//		List<Roll> rolls= (ArrayList<Roll>)rollService.getRollsByPlayerId(id);
 		
+		Roll roll = new Roll (game, player);
+		rollService.save(roll);
+		roll.rollDices();
+		rollService.save(roll);
 		if(optionalPlayer.isPresent()) {
-//			player= optionalPlayer.get();
-//			Game game = new Game(player);
-//			Roll roll = new Roll (game, player);
-//			game.setRolls(roll);
-//			gameService.save(game);
-//			
-//			rollService.save(roll);
 			List<Roll> rolls= player.getRolls();
-//			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);
 			model.addAttribute("game", roll.getGame());
 			model.addAttribute("rolls",rolls);
-//			model.addAttribute("button","/" );
+
 			return "game";
 		}
 		return "game";
@@ -110,11 +96,10 @@ public class GameController {
 	
 	@GetMapping("/players/{id}/games/")
 	public String getPlayerRolls( @PathVariable int id, Model model) {
-		//Pendiente de obtención de los rolls de un jugador, probablemente creando métodos de acceso a BD en el servicio
-//		List<Roll> rolls= (ArrayList<Roll>)rollService.getRollsByPlayerId(id);
 		
 		Player player;
 		Optional<Player> optionalPlayer= playerService.searchById(id);
+		
 		if(optionalPlayer.isPresent()) {
 			player= optionalPlayer.get();
 			List<Roll> rolls= player.getRolls();
