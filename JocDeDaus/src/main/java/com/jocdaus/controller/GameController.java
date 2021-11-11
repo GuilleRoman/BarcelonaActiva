@@ -20,6 +20,7 @@ import com.jocdaus.models.Roll;
 import com.jocdaus.services.DiceService;
 import com.jocdaus.services.GameService;
 import com.jocdaus.services.PlayerService;
+import com.jocdaus.services.RollService;
 
 @Controller
 @RequestMapping("")
@@ -32,6 +33,8 @@ public class GameController {
 	GameService gameService;
 	@Autowired
 	DiceService diceService;
+	@Autowired
+	RollService rollService;
 	
 	@GetMapping("/")
 	public String start(Model model) {
@@ -67,31 +70,37 @@ public class GameController {
 	}
 	
 	@PostMapping("/players/{id}/games/")
-	public String rollDices( @PathVariable("id") int id, Model model) {
+	public String rollDices( @PathVariable int id, Model model) {
 	
 		Player player;
 		Optional<Player> optionalPlayer= playerService.searchById(id);
+//		List<Roll> rolls= (ArrayList<Roll>)rollService.getRollsByPlayerId(id);
 		
 		if(optionalPlayer.isPresent()) {
 			player= optionalPlayer.get();
-			player.rollDices();
-			model.addAttribute("dices", player.getDices());
+			Roll roll = new Roll (new Game(player), player);
+			rollService.save(roll);
+			List<Roll> rolls= player.getRolls();
+//			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);
-			model.addAttribute("game", new Game());
-			List<Roll> rolls =  player.getRolls();
-			model.addAttribute("rolls", rolls);
+			model.addAttribute("game", roll.getGame());
+			model.addAttribute("rolls",rolls);
+//			model.addAttribute("button","/" );
 			return "game";
 		}
 		return "game";
 	}
 	
 	@GetMapping("/players/{id}/games/")
-	public String getPlayerRolls( @PathVariable("id") int id, Model model) {
+	public String getPlayerRolls( @PathVariable int id, Model model) {
+		//Pendiente de obtención de los rolls de un jugador, probablemente creando métodos de acceso a BD en el servicio
+//		List<Roll> rolls= (ArrayList<Roll>)rollService.getRollsByPlayerId(id);
+		
 		Player player;
 		Optional<Player> optionalPlayer= playerService.searchById(id);
 		if(optionalPlayer.isPresent()) {
 			player= optionalPlayer.get();
-			List<Roll> rolls = player.getRolls();
+			List<Roll> rolls= player.getRolls();
 			model.addAttribute("rolls", rolls);
 			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);

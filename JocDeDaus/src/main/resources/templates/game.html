@@ -11,7 +11,7 @@
 	<body>
 		
 		<div class="container">
-			<div>
+			<div class="header">
 				<img src="/img/ba.png" alt="Barcelona Activa logo" />
 				&nbsp;&nbsp;<img src="/img/ITAcademy.png" alt="IT Academy logo" /> <br>
 				<br>
@@ -21,7 +21,7 @@
 			<tr th:if="${game ne null}">
 					<td colspan="2">The game haven't started yet </td>
 					</tr>
-			<h3>Game: <span th:text="${game.id}"></span>   Player: <span th:text="${player.name}"></span></h3>	
+			<h3>   Player: <span th:text="${player.name}"></span></h3>	
 			<br>
 			
 			<table border=1 class="table">
@@ -31,12 +31,12 @@
 			</thead>
 			<tbody>
 				<tr th:if="${#lists.isEmpty(rolls)}">
-					<td colspan="2"> No employees available </td>
+					<td colspan="2"> No Rolls </td>
 					</tr>
 					<tr th:each="roll: ${rolls}">
-					<td><span th:text="${rolls.game_id}"></span></td>
-					<td><span th:text="${rolls.player_id}"></span></td>
-					<td><span th:text="${rolls.result}"></span></td>
+					<td><span th:text="${roll.game.id}"></span></td>
+					<td><span th:text="${roll.player.name}"></span></td>
+					<td><span th:text="${roll.result}"></span></td>
 					
 				</tr>
 			
@@ -48,19 +48,16 @@
 			
 			
 			
-			
-			
-			
-			
-		<form th:action="@{/players/{id}/games/(id = ${player.id})}" method="post" th:object="${player}">
-			<button type="submit" name="roll" class="btn btn-success" th:href="@{/players/{id}/games/(id = ${player.id})}">Roll The Dice!</button>
-		</form>
+			<form th:action="@{/players/{id}/games/(id = ${player.id})}" method="post">
+					<button type="submit" name="login" class="btn btn-success">Roll The Dices!</button>
+				</form>
+
 		<br><br>
 		
-		<form  action="/" method="get">
-			<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
-		</form>	
-		</div>	
+			<form  action="/" method="get">
+				<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
+			</form>	
+			</div>	
 		
 			
 	</body>

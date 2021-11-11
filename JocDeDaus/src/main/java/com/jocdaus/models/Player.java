@@ -136,7 +136,7 @@ public class Player {
 		}
 		
 		this.gamesPlayed.add(currentGame);
-		 ((Roll) this.rolls).setResult(result);
+		 
 		return result;
 	}
 }
