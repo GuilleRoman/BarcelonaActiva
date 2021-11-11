@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,16 +23,17 @@ public class Dice {
 	@ManyToOne(targetEntity=Player.class)
 	@JoinColumn(name="player_id")
 	private Player player;
-	@OneToOne(mappedBy = "dices")
-	private Roll rolls;
+	//era one to one
+//	@OneToMany(mappedBy = "dices")
+//	private Roll rolls;
 
 	
-	public Roll getRolls() {
-		return rolls;
-	}
-	public void setRolls(Roll rolls) {
-		this.rolls = rolls;
-	}
+//	public Roll getRolls() {
+//		return rolls;
+//	}
+//	public void setRolls(Roll rolls) {
+//		this.rolls = rolls;
+//	}
 	public Player getPlayer() {
 		return player;
 	}

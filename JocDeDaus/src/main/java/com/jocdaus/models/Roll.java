@@ -28,9 +28,9 @@ public class Roll {
 	@JoinColumn(name="player_id", referencedColumnName = "id")
 	private Player player;
 	
-	@ManyToOne(targetEntity=Dice.class, cascade=CascadeType.ALL)
-	@JoinColumn(name="dice_id", referencedColumnName = "id")
-	private List<Dice> dices;
+//	@ManyToOne(targetEntity=Dice.class, cascade=CascadeType.ALL)
+//	@JoinColumn(name="dice_id", referencedColumnName = "id")
+//	private List<Dice> dices;
 	
 	@Column(columnDefinition = "integer not null default 0")
 	private int result;
@@ -52,12 +52,12 @@ public class Roll {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	public List<Dice> getDices() {
-		return dices;
-	}
-	public void setDices(List<Dice> dices) {
-		this.dices = dices;
-	}
+//	public List<Dice> getDices() {
+//		return dices;
+//	}
+//	public void setDices(List<Dice> dices) {
+//		this.dices = dices;
+//	}
 	public int getResult() {
 		return result;
 	}
@@ -69,7 +69,7 @@ public class Roll {
 		
 		this.game = game;
 		this.player = player;
-		this.dices = player.getDices();
+//		this.dices = player.getDices();
 		this.result= player.rollDices();
 	}
 	public Roll() {

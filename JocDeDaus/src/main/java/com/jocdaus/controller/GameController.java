@@ -71,15 +71,32 @@ public class GameController {
 	
 	@PostMapping("/players/{id}/games/")
 	public String rollDices( @PathVariable int id, Model model) {
-	
+			
+		Game game = new Game();
+		gameService.save(game);
+		Roll roll = new Roll ();
+		rollService.save(roll);
+		
 		Player player;
 		Optional<Player> optionalPlayer= playerService.searchById(id);
+		player= optionalPlayer.get();
+		
+		game.setPlayer(player);
+		
+		roll.setGame(game);
+		roll.setPlayer(player);
+		gameService.save(game);
+		rollService.save(roll);
 //		List<Roll> rolls= (ArrayList<Roll>)rollService.getRollsByPlayerId(id);
 		
 		if(optionalPlayer.isPresent()) {
-			player= optionalPlayer.get();
-			Roll roll = new Roll (new Game(player), player);
-			rollService.save(roll);
+//			player= optionalPlayer.get();
+//			Game game = new Game(player);
+//			Roll roll = new Roll (game, player);
+//			game.setRolls(roll);
+//			gameService.save(game);
+//			
+//			rollService.save(roll);
 			List<Roll> rolls= player.getRolls();
 //			model.addAttribute("dices", player.getDices());
 			model.addAttribute("player", player);
