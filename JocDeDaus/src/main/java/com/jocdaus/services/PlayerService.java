@@ -14,7 +14,7 @@ import com.jocdaus.repositories.PlayerRepository;
 public class PlayerService {
 	@Autowired
 	PlayerRepository db;
-
+	
 	public void createPlayer(Player player) {
 		// TODO Auto-generated method stub
 		db.save(player);
@@ -38,6 +38,11 @@ public class PlayerService {
 	public void update(Player player) {
 		db.save(player);
 		
+	}
+
+	public void save(Player player) {
+		// TODO Auto-generated method stub
+		db.save(player);
 	}
 
 	

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.jocdaus.models.Dice;
 import com.jocdaus.models.Game;
 import com.jocdaus.models.Player;
@@ -61,6 +59,7 @@ public class GameController {
 		
 		model.addAttribute("players", playerService.getPlayers());
 		model.addAttribute("player", player);
+		
 		return "players";
 	}
 	
@@ -82,7 +81,11 @@ public class GameController {
 		Roll roll = new Roll (game, player);
 		rollService.save(roll);
 		roll.rollDices();
+		gameService.save(game);
 		rollService.save(roll);
+		playerService.update(player);
+		
+		
 		if(optionalPlayer.isPresent()) {
 			List<Roll> rolls= player.getRolls();
 			model.addAttribute("player", player);
@@ -114,11 +117,28 @@ public class GameController {
 	}
 	
 	@GetMapping("/players/ranking")
-	public String getRanking(Player player, @PathVariable("id") int id, Model model) {
-		playerService.modifyPlayer(player);
-		model.addAttribute("Player", player);
+	public String getRanking( Model model) {
+		List<Player>players= (ArrayList<Player>) playerService.getPlayers();
+		int timesRolled=0;
+		int timesWon=0;
+		double winRate=0;
+		for (Player p: players) {
+			timesRolled =rollService.countTimesRolled(p.getId());
+			timesWon = gameService.countTimesWon(p.getName());
+			winRate = (timesWon/(double)timesRolled)*100;
+			
+			winRate = (double)Math.round(winRate * 100d) / 100d;
+			p.setWinRate(winRate);
+			playerService.update(p);
+		}
 		
-		return "game";
+		
+		model.addAttribute("players", players);
+		model.addAttribute("timesRolled", timesRolled);
+		model.addAttribute("timesWon", timesWon);
+//		model.addAttribute("winRate", winRate);
+		
+		return "ranking";
 	}
 	
 	@GetMapping("/players/")
@@ -131,8 +151,8 @@ public class GameController {
 	
 	@GetMapping("/players/ranking/loser")
 	public String getLoser(Player player, @PathVariable("id") int id, Model model) {
-		playerService.modifyPlayer(player);
-		model.addAttribute("Player", player);
+		
+		model.addAttribute("player", player);
 		
 		return "game";
 	}

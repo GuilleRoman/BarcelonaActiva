@@ -13,5 +13,7 @@ public interface RollRepository extends JpaRepository<Roll, Integer> {
 
 	@Query(value = "SELECT * FROM ROLLS WHERE player_id = ?1", nativeQuery = true)
 	List<Roll> getRollsByPlayerId(Integer id);
-
+	
+	@Query(value="SELECT COUNT(id) FROM Rolls WHERE player_id = ?1", nativeQuery = true)
+	public int countTimesRolled(int id);
 }

@@ -15,4 +15,9 @@ public class GameService {
 		// TODO Auto-generated method stub
 		db.save(game);
 	}
+
+	public int countTimesWon(String player) {
+		// TODO Auto-generated method stub
+		return db.countTimesWon(player);
+	}
 }

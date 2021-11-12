@@ -25,4 +25,10 @@ public class RollService {
 		// TODO Auto-generated method stub
 		db.save(roll);
 	}
+
+	
+	public int countTimesRolled(int id) {
+		// TODO Auto-generated method stub
+		return db.countTimesRolled(id);
+	}
 }

@@ -120,7 +120,7 @@ public class Roll {
 		}else {
 			this.game.setLoser(this.getPlayer().getName());
 		}
-	
+		
 
 	}
 	

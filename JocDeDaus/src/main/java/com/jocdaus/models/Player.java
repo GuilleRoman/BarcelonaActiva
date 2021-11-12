@@ -37,6 +37,7 @@ public class Player {
 	
 	@Column
 	private double winRate;
+	
 	@OneToMany(mappedBy = "player")
 	private List<Roll> rolls;
 	
