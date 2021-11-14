@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 import com.jocdaus.models.Player;
 import com.jocdaus.models.Roll;
 import com.jocdaus.repositories.PlayerRepository;
+import com.jocdaus.repositories.PlayerRepositoryMongo;
 
 @Service
 public class PlayerService {
 	@Autowired
 	PlayerRepository db;
+	@Autowired
+	PlayerRepositoryMongo db1;
 	
 	public void createPlayer(Player player) {
 		// TODO Auto-generated method stub
@@ -45,7 +48,15 @@ public class PlayerService {
 		db.save(player);
 	}
 
-	
+	public Player getLoser() {
+		// TODO Auto-generated method stub
+		return db.getLoser();
+	}
+
+	public Player getWinner() {
+		// TODO Auto-generated method stub
+		return db.getWinner();
+	}
 
 
 }

@@ -150,19 +150,53 @@ public class GameController {
 	}
 	
 	@GetMapping("/players/ranking/loser")
-	public String getLoser(Player player, @PathVariable("id") int id, Model model) {
-		
+	public String getLoser( Model model) {
+		List<Player>players= new ArrayList<Player>();
+		Player player = playerService.getLoser();
+		players.add(player);
+		int timesRolled=0;
+		int timesWon=0;
+		for(Roll r: player.getRolls()) {
+			timesRolled++;
+			if(r.getGame().getWinner()== null) {
+				continue;
+				
+			}else if (r.getGame().getWinner().matches(player.getName())) {
+				timesWon++;
+				
+			}
+		}
+//		int timesRolled =rollService.countTimesRolled(p.getId());
+//		int timesWon = gameService.countTimesWon(player.getName());
 		model.addAttribute("player", player);
-		
-		return "game";
+		model.addAttribute("players", players);
+		model.addAttribute("timesRolled", timesRolled);
+		model.addAttribute("timesWon", timesWon);
+		return "ranking";
 	}
 	
 	@GetMapping("/players/ranking/winner")
-	public String getWinner(Player player, @PathVariable("id") int id, Model model) {
-		playerService.modifyPlayer(player);
+	public String getWinner( Model model) {
+		List<Player>players= new ArrayList<Player>();
+		Player player = playerService.getWinner();
+		players.add(player);
+		int timesRolled=0;
+		int timesWon=0;
+		for(Roll r: player.getRolls()) {
+			timesRolled++;
+			if(r.getGame().getWinner()== null) {
+				continue;
+				
+			}else if (r.getGame().getWinner().matches(player.getName())) {
+				timesWon++;
+				
+			}
+		}
 		model.addAttribute("Player", player);
-		
-		return "game";
+		model.addAttribute("players", players);
+		model.addAttribute("timesRolled", timesRolled);
+		model.addAttribute("timesWon", timesWon);
+		return "ranking";
 	}
 	
 	

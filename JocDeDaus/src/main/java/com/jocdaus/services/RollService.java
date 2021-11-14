@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.jocdaus.models.Roll;
 import com.jocdaus.repositories.RollRepository;
+import com.jocdaus.repositories.RollRepositoryMongo;
 
 @Service
 public class RollService {
 	@Autowired
 	RollRepository db;
+	@Autowired
+    RollRepositoryMongo db1;
     
 	public List<Roll> getRollsByPlayerId(Integer id) {
 		return db.getRollsByPlayerId(id);
