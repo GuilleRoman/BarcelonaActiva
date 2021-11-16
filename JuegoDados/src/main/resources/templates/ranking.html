@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Dice Game</title>
+
+	</head>
+	<body>
+		
+		<div class="container">
+			<div>
+				<img src="/img/ba.png" alt="Barcelona Activa logo" />
+				&nbsp;&nbsp;<img src="/img/ITAcademy.png" alt="IT Academy logo" /> <br>
+				<br>
+				<h1>Dice Game</h1>
+				<br>
+			</div>
+			<br>
+			
+			<table border=1 class="table">
+			<thead class="thead-light">
+				<tr><th>Player<th>Wins<th>Times Played<th>WinRate<th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${#lists.isEmpty(players)}">
+					<td colspan="2">There are no players yet </td>
+					</tr>
+					<tr th:each="player: ${players}">
+					<td  colspan="2"><span th:text="${player.name}"></span></td> 
+					<td  colspan="2"><span th:text="${timesWon}"></span></td>
+					<td  colspan="2"><span th:text="${timesRolled}"></span></td>
+					<td  colspan="2"><span th:text="${player.winRate}"></span></td>		
+				</tr>
+			
+			</tbody>
+		
+		
+		</table>
+		<form  action="/" method="get">
+		<button type="submit" name="login" class="btn btn-success" th:href="@{/}">Return to Login</button>
+		</form>
+		
+		</div>
+	
+		
+	</body>
+</html>
