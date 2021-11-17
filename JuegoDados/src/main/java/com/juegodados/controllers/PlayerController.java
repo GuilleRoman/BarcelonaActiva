@@ -1,6 +1,7 @@
 package com.juegodados.controllers;
 
 import org.springframework.beans.BeanUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.juegodados.documents.Game;
 import com.juegodados.entities.*;
 import com.juegodados.models.GameModel;
@@ -127,29 +129,27 @@ public class PlayerController {
 	
 	@GetMapping("/players/ranking")
 	public String getRanking( Model model) {
-		List<PlayerModel> playerModels= new ArrayList<PlayerModel>(); 
-		List<Player> players = globalService.getPlayers();
-		BeanUtils.copyProperties(players, playerModels);
-		
+		List<Player>players= (ArrayList<Player>) globalService.getPlayers();
 		int timesRolled=0;
 		int timesWon=0;
-		double winRate;
-		for(Player p: players) {
-			timesRolled=globalService.countGamesPlayed(p);
-			timesWon=globalService.countWins(p);
+		double winRate=0;
+		for (Player p: players) {
+			timesRolled =globalService.countGamesPlayed(p);
+			timesWon = globalService.countWins(p);
 			winRate = (timesWon/(double)timesRolled)*100;
+			
 			winRate = (double)Math.round(winRate * 100d) / 100d;
 			p.setWinRate(winRate);
 			globalService.update(p);
-			
-			
 		}
-//		BeanUtils.copyProperties(playerModels, players);
 		
 		
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
 		model.addAttribute("timesWon", timesWon);
+
+		
+		
 
 		
 		return "ranking";
