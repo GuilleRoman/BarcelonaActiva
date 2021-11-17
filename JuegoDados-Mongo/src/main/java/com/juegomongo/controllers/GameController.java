@@ -102,28 +102,9 @@ public class GameController {
 	
 	@GetMapping("/players/ranking")
 	public String getRanking( Model model) {
-		List<Player>players= (ArrayList<Player>) globalService.getPlayers();
-		int timesRolled=0;
-		int timesWon=0;
-		double winRate=0;
-		for (Player p: players) {
-			timesRolled =globalService.countGamesPlayed(p);
-			timesWon = globalService.countWins(p);
-			winRate = (timesWon/(double)timesRolled)*100;
-			
-			winRate = (double)Math.round(winRate * 100d) / 100d;
-			p.setWinRate(winRate);
-			globalService.save(p);
-		}
-		
-		
+		ArrayList<Player>players= globalService.getPlayers();
+		globalService.calculateRanking(players);
 		model.addAttribute("players", players);
-	
-
-		
-		
-
-		
 		return "ranking";
 	}
 	

@@ -1,5 +1,6 @@
 package com.jocdaus.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Optional;
@@ -55,6 +56,19 @@ public class PlayerService {
 		// TODO Auto-generated method stub
 		return db.getWinner();
 	}
-
+	public void calculateRanking(ArrayList<Player> players, RollService rollService, GameService gameService){
+		int timesRolled=0;
+		int timesWon=0;
+		double winRate=0;
+		for (Player p: players) {
+			timesRolled =rollService.countTimesRolled(p.getId());
+			timesWon = gameService.countTimesWon(p.getName());
+			winRate = (timesWon/(double)timesRolled)*100;
+			
+			winRate = (double)Math.round(winRate * 100d) / 100d;
+			p.setWinRate(winRate);
+			this.update(p);
+		}
+	}
 
 }

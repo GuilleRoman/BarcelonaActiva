@@ -74,6 +74,20 @@ public class GlobalService {
 		// TODO Auto-generated method stub
 		playerRepository.save(player);
 	}
-
+	
+	public void calculateRanking(ArrayList<Player> players){
+		int timesRolled=0;
+		int timesWon=0;
+		double winRate=0;
+		for (Player p: players) {
+			timesRolled =this.countGamesPlayed(p);
+			timesWon = this.countWins(p);
+			winRate = (timesWon/(double)timesRolled)*100;
+			
+			winRate = (double)Math.round(winRate * 100d) / 100d;
+			p.setWinRate(winRate);
+			this.save(p);
+		}
+	}
 
 }
