@@ -22,7 +22,7 @@
 			
 			<table border=1 class="table">
 			<thead class="thead-light">
-				<tr><th>Player<th>WinRate<th>
+				<tr><th>Player<th>Times Played<th>Wins<th>WinRate<th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,7 +30,9 @@
 					<td colspan="2">There are no players yet </td>
 					</tr>
 					<tr th:each="player: ${players}">
-					<td  colspan="2"><span th:text="${player.name}"></span></td> 
+					<td  colspan="2"><span th:text="${player.name}"></span></td>
+					<td  colspan="2"><span th:text="${timesRolled}"></span></td>
+					<td  colspan="2"><span th:text="${timesWon}"></span></td> 
 					<td  colspan="2"><span th:text="${player.winRate}"></span></td>		
 				</tr>
 			

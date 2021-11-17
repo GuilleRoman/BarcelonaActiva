@@ -168,52 +168,32 @@ public class PlayerController {
 	@GetMapping("/players/ranking/loser")
 	public String getLoser( Model model) {
 		List<Player>players= new ArrayList<Player>();
-		PlayerModel playerModel= new PlayerModel();
+	
 		Player player = globalService.getLoser();
-		BeanUtils.copyProperties(player, playerModel);
+	
 		players.add(player);
-		int timesRolled=0;
-		int timesWon=0;
-		for(GameModel g: playerModel.getGamesPlayed()) {
-			timesRolled++;
-			if(g.getWinner()== null) {
-				continue;
-				
-			}else if (g.getWinner().matches(player.getName())) {
-				timesWon++;
-				
-			}
-		}
+		int timesRolled=globalService.countGamesPlayed(player);
+		int timesWon=globalService.countWins(player);
 		model.addAttribute("Player", player);
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
 		model.addAttribute("timesWon", timesWon);
-		return "ranking";
+		return "winner-loser";
 	}
 	
 	@GetMapping("/players/ranking/winner")
 	public String getWinner( Model model) {
 		List<Player>players= new ArrayList<Player>();
-		PlayerModel playerModel= new PlayerModel();
+		
 		Player player = globalService.getWinner();
-		BeanUtils.copyProperties(player, playerModel);
+	
 		players.add(player);
-		int timesRolled=0;
-		int timesWon=0;
-		for(GameModel g: playerModel.getGamesPlayed()) {
-			timesRolled++;
-			if(g.getWinner()== null) {
-				continue;
-				
-			}else if (g.getWinner().matches(player.getName())) {
-				timesWon++;
-				
-			}
-		}
+		int timesRolled=globalService.countGamesPlayed(player);
+		int timesWon=globalService.countWins(player);
 		model.addAttribute("Player", player);
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
 		model.addAttribute("timesWon", timesWon);
-		return "ranking";
+		return "winner-loser";
 	}
 }

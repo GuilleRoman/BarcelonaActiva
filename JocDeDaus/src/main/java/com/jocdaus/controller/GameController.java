@@ -172,7 +172,7 @@ public class GameController {
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
 		model.addAttribute("timesWon", timesWon);
-		return "ranking";
+		return "winner-loser";
 	}
 	
 	@GetMapping("/players/ranking/winner")
@@ -196,7 +196,7 @@ public class GameController {
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
 		model.addAttribute("timesWon", timesWon);
-		return "ranking";
+		return "winner-loser";
 	}
 	
 	
