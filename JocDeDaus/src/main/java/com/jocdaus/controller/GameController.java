@@ -120,20 +120,6 @@ public class GameController {
 	public String getRanking( Model model) {
 		ArrayList<Player>players=  (ArrayList<Player>) playerService.getPlayers();
 		playerService.calculateRanking(players, rollService, gameService);
-//		int timesRolled=0;
-//		int timesWon=0;
-//		double winRate=0;
-//		for (Player p: players) {
-//			timesRolled =rollService.countTimesRolled(p.getId());
-//			timesWon = gameService.countTimesWon(p.getName());
-//			winRate = (timesWon/(double)timesRolled)*100;
-//			
-//			winRate = (double)Math.round(winRate * 100d) / 100d;
-//			p.setWinRate(winRate);
-//			playerService.update(p);
-//		}
-		
-		
 		model.addAttribute("players", players);
 		
 		return "ranking";
@@ -164,8 +150,7 @@ public class GameController {
 				
 			}
 		}
-//		int timesRolled =rollService.countTimesRolled(p.getId());
-//		int timesWon = gameService.countTimesWon(player.getName());
+
 		model.addAttribute("player", player);
 		model.addAttribute("players", players);
 		model.addAttribute("timesRolled", timesRolled);
