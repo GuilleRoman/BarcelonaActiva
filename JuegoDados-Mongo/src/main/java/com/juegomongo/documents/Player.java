@@ -16,19 +16,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private String id;
-	
+	private String player_id;
+	private String password;
 	@Indexed(unique=true)
 	private String name;
 	private double winRate;
 	@CreationTimestamp
 	private Date registerDate ;
 	
-	public String getId() {
-		return id;
+	public String getPassword() {
+		return password;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPlayer_Id() {
+		return player_id;
+	}
+	public void setPlayer_Id(String player_id) {
+		this.player_id = player_id;
 	}
 	public String getName() {
 		return name;
@@ -52,18 +58,20 @@ public class Player {
 	public Player() {
 		super();
 	}
-	public Player(String id, String name, double winRate, Date registerDate) {
+	
+	public Player(String player_id, String password, String name, double winRate, Date registerDate) {
 		super();
-		this.id = id;
+		this.player_id = player_id;
+		this.password = password;
 		this.name = name;
 		this.winRate = winRate;
 		this.registerDate = registerDate;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", winRate=" + winRate + ", registerDate=" + registerDate + "]";
+		return "Player [player_id=" + player_id + ", password=" + password + ", name=" + name + ", winRate=" + winRate
+				+ ", registerDate=" + registerDate + "]";
 	}
 	public int rollDice() {
 		Random r = new Random();

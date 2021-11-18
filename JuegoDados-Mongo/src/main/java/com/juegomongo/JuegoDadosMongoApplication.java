@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class })
 public class JuegoDadosMongoApplication {
 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(JuegoDadosMongoApplication.class, args);
 	}

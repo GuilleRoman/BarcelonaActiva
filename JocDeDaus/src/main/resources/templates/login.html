@@ -25,7 +25,7 @@
 				</div>
 				 <div class="form-group">
 				    <label for="password">Password</label>
-				    <input type="password" class="form-control" id="password" placeholder="Password">
+				    <input type="password" class="form-control" th:field="*{password}" placeholder="Password">
 				 </div>
 				 <br>
 				<form  action="/players/" th:object="${player}" method="get">

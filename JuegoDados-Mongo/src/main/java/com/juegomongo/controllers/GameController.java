@@ -55,11 +55,11 @@ public class GameController {
 		model.addAttribute("Player", player);
 	}
 	
-	@PostMapping("/players/{name}/games/")
-	public String rollDices( @PathVariable String name, Model model) {
+	@PostMapping("/players/{player_id}/games/")
+	public String rollDices( @PathVariable String player_id, Model model) {
 		Player player;
 		
-		Optional<Player> optionalPlayer= globalService.searchByName(name);
+		Optional<Player> optionalPlayer= globalService.searchById(player_id);
 		if(optionalPlayer.isPresent()) {
 		player= optionalPlayer.get();
 		
@@ -81,11 +81,11 @@ public class GameController {
 		return "game";
 	}
 	
-	@GetMapping("/players/{name}/games/")
-	public String getPlayerRolls( @PathVariable String name, Model model) {
+	@GetMapping("/players/{player_id}/games/")
+	public String getPlayerRolls( @PathVariable String id, Model model) {
 		
 		Player player;
-		Optional<Player> optionalPlayer= globalService.searchByName(name);
+		Optional<Player> optionalPlayer= globalService.searchById(id);
 		if(optionalPlayer.isPresent()) {
 		player= optionalPlayer.get();
 		

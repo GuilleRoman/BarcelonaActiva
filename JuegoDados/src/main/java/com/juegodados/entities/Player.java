@@ -21,13 +21,23 @@ public class Player {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
+	private String password;
+	@Column(name="register_date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date registerDate;
 	
-	@Column(columnDefinition = "varchar(255) default 'ANONIMO'")
+	@Column(columnDefinition = "varchar(255) default 'ANONIMO'", unique=true)
 	private String name;
 	
 
 	private double winRate;
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public int getId() {
 		return id;
 	}
@@ -56,18 +66,23 @@ public class Player {
 	public Player() {
 		super();
 	}
-	public Player(int id, Date registerDate, String name,  double winRate) {
+	
+
+	public Player(int id, String password, Date registerDate, String name, double winRate) {
 		super();
 		this.id = id;
+		this.password = password;
 		this.registerDate = registerDate;
 		this.name = name;
 		this.winRate = winRate;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", registerDate=" + registerDate + ", name=" + name + ", winRate=" + winRate + "]";
+		return "Player [id=" + id + ", password=" + password + ", registerDate=" + registerDate + ", name=" + name
+				+ ", winRate=" + winRate + "]";
 	}
-
 	public int rollDice() {
 		Random r = new Random();
 		int low = 1;

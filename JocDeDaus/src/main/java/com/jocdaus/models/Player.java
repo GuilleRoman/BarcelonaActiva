@@ -22,10 +22,10 @@ public class Player {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	
-	@Column
+	private String password;
+	@Column(name="register_date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date registerDate;
-	@Column(columnDefinition = "varchar(255) default 'ANONIMO'")
+	@Column(columnDefinition = "varchar(255) default 'ANONIMO'", unique=true)
 	private String name;
 	
 	@OneToMany(mappedBy="player")
@@ -41,6 +41,13 @@ public class Player {
 	@OneToMany(mappedBy = "player")
 	private List<Roll> rolls;
 	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public List<Game> getGamesPlayed() {
 		return gamesPlayed;
 	}
@@ -99,6 +106,19 @@ public class Player {
 
 	}
 	
+	
+	public Player(int id, String password, Date registerDate, String name, List<Dice> dices, List<Game> gamesPlayed,
+			double winRate, List<Roll> rolls) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.registerDate = registerDate;
+		this.name = name;
+		this.dices = dices;
+		this.gamesPlayed = gamesPlayed;
+		this.winRate = winRate;
+		this.rolls = rolls;
+	}
 	public Player( Date registerDate, String name) {
 		super();
 	
@@ -113,9 +133,10 @@ public class Player {
 	
 	public Player() {};
 	
-	public Player( String name) {
+	public Player( String name, String password) {
 		super();
 		this.name = name;
+		this.password=password;
 		Dice dice1= new Dice(this);
 		Dice dice2= new Dice(this);
 		this.dices.add(dice1);
@@ -124,6 +145,12 @@ public class Player {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", password=" + password + ", registerDate=" + registerDate + ", name=" + name
+				+ ", dices=" + dices + ", gamesPlayed=" + gamesPlayed + ", winRate=" + winRate + ", rolls=" + rolls
+				+ "]";
+	}
 	public  int rollDices() {
 		// Definimos una partida actual que elabora toda la lógica del programa y le añadimos este jugador
 		//mediante "this". El método lanza ambos dados, si el resultado de la suma es 7, añadimos ganador,
