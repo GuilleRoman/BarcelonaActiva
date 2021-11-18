@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private String player_id;
+	private String id;
 	private String password;
 	@Indexed(unique=true)
 	private String name;
@@ -30,11 +30,11 @@ public class Player {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPlayer_Id() {
-		return player_id;
+	public String getId() {
+		return id;
 	}
-	public void setPlayer_Id(String player_id) {
-		this.player_id = player_id;
+	public void setPlayer_Id(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -59,9 +59,9 @@ public class Player {
 		super();
 	}
 	
-	public Player(String player_id, String password, String name, double winRate, Date registerDate) {
+	public Player(String id, String password, String name, double winRate, Date registerDate) {
 		super();
-		this.player_id = player_id;
+		this.id = id;
 		this.password = password;
 		this.name = name;
 		this.winRate = winRate;
@@ -70,7 +70,7 @@ public class Player {
 	
 	@Override
 	public String toString() {
-		return "Player [player_id=" + player_id + ", password=" + password + ", name=" + name + ", winRate=" + winRate
+		return "Player [id=" + id + ", password=" + password + ", name=" + name + ", winRate=" + winRate
 				+ ", registerDate=" + registerDate + "]";
 	}
 	public int rollDice() {

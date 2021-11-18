@@ -21,5 +21,6 @@ public interface PlayerRepository extends MongoRepository<Player , String> {
 
 	 @Query(value="{name:?0}")  
 	public Optional<Player> findByName(String name);
+	
 
 }

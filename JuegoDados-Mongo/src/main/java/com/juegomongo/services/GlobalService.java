@@ -86,7 +86,8 @@ public class GlobalService {
 			
 			winRate = (double)Math.round(winRate * 100d) / 100d;
 			p.setWinRate(winRate);
-			this.save(p);
+			this.playerRepository.save(p);
+			
 		}
 	}
 

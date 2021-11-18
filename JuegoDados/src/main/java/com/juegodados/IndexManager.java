@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 class IndexManager implements InitializingBean {
 
     private MongoTemplate mongoTemplate;
-
+    
     public IndexManager(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
-
+   
     @Override
     public void afterPropertiesSet() {
         mongoTemplate.dropCollection("games");
