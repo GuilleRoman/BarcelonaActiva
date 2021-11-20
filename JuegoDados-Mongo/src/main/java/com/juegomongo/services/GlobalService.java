@@ -1,6 +1,7 @@
 package com.juegomongo.services;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import com.juegomongo.repositories.PlayerRepository;
 
 @Service
 public class GlobalService {
-	
 	
 	@Autowired
 	PlayerRepository playerRepository;
@@ -75,6 +75,7 @@ public class GlobalService {
 		playerRepository.save(player);
 	}
 	
+	
 	public void calculateRanking(ArrayList<Player> players){
 		int timesRolled=0;
 		int timesWon=0;
@@ -89,6 +90,10 @@ public class GlobalService {
 			this.playerRepository.save(p);
 			
 		}
+	}
+	public void deleteAllPlayerGames(List<Game> games) {
+		// TODO Auto-generated method stub
+		this.gameRepository.deleteAll(games);
 	}
 
 }
