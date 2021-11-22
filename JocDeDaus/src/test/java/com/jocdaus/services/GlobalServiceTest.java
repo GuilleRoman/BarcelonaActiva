@@ -1,6 +1,7 @@
-package com.juegomongo.services;
+package com.jocdaus.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
@@ -21,9 +22,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.juegomongo.documents.Game;
-import com.juegomongo.documents.Player;
-import com.juegomongo.repositories.PlayerRepository;
+import com.jocdaus.models.Game;
+import com.jocdaus.models.Player;
+import com.jocdaus.repositories.PlayerRepository;
 
 
 
@@ -33,7 +34,7 @@ class GlobalServiceTest {
 	
 
 	@InjectMocks
-	GlobalService service;
+	PlayerService service;
 	
 	@Mock
 	PlayerRepository repo;
@@ -55,9 +56,9 @@ class GlobalServiceTest {
 		player.setName("Test1");
 		Player player2 = new Player();
 		game = new Game();
-		game.setPlayerName(player.getName());
+		game.setPlayer(player);
 		game1 = new Game();
-		game1.setPlayerName(player.getName());
+		game1.setPlayer(player);
 		players.add(player);
 		players.add(player1);
 		players.add(player2);
@@ -70,12 +71,12 @@ class GlobalServiceTest {
 	void testGetWinner() {
 		when(service.getWinner()).thenReturn( player);
 		
-		assertThat(service.getWinner()).isNull();
+		assertThat(service.getWinner()).isNull();;
 	}
 
 	@Test
 	void TestCrearPlayer() {
-		service.save(player);
+		service.savePlayer(player);
 		verify(repo, times(1)).save(player);
 		
 	}

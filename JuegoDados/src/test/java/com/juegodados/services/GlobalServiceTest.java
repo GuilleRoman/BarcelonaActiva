@@ -1,4 +1,4 @@
-package com.juegomongo.services;
+package com.juegodados.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,9 +21,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.juegomongo.documents.Game;
-import com.juegomongo.documents.Player;
-import com.juegomongo.repositories.PlayerRepository;
+import com.juegodados.documents.Game;
+import com.juegodados.entities.Player;
+import com.juegodados.repositories.PlayerRepository;
 
 
 
@@ -70,12 +70,12 @@ class GlobalServiceTest {
 	void testGetWinner() {
 		when(service.getWinner()).thenReturn( player);
 		
-		assertThat(service.getWinner()).isNull();
+		assertThat(service.getWinner()).isNull();;
 	}
 
 	@Test
 	void TestCrearPlayer() {
-		service.save(player);
+		service.savePlayer(player);
 		verify(repo, times(1)).save(player);
 		
 	}
