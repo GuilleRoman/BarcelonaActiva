@@ -1,6 +1,8 @@
-package com.juegomongo.jwt;
+package com.jocdaus.controller;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -30,13 +32,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juegomongo.documents.Game;
-import com.juegomongo.documents.Player;
-import com.juegomongo.services.GlobalService;
+import com.jocdaus.models.Game;
+import com.jocdaus.models.Player;
+import com.jocdaus.jwt.AuthenticationRequest;
+import com.jocdaus.jwt.AuthenticationResponse;
+import com.jocdaus.jwt.JwtRequestFilter;
+import com.jocdaus.jwt.JwtUtil;
+import com.jocdaus.jwt.UserDTO;
+import com.jocdaus.services.MyUserDetailsService;
 
 
 @RestController
-public class HelloWorldController {
+public class UserController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -47,8 +54,8 @@ public class HelloWorldController {
 	@Autowired
 	private MyUserDetailsService userDetailsService;
 	
-	 @Autowired
-	    GlobalService globalService;
+//	 @Autowired
+//	  private  GlobalService globalService;
 
 	@RequestMapping({ "/hello" })
 	public String firstPage() {
@@ -81,93 +88,7 @@ public class HelloWorldController {
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
 	
-	//Crea un nuevo jugador
-	@PostMapping("/player")
-	public ResponseEntity<Player> createPlayer(@RequestBody Player player) {	
-		globalService.save(player);
-	return ResponseEntity.ok(player);
-	}
-	//Modifica un jugador existente
-	@PutMapping("/players")
-	public ResponseEntity<Player> modifyPlayer(@RequestBody Player player) {
-		globalService.modifyPlayer(player);
-		return ResponseEntity.ok(player);
-	}
 	
-	//Lanza los dados de un jugador
-	@PostMapping("/player/{name}/games/")
-	public ResponseEntity<List<Game>> rollDices(@PathVariable(name="name") String name) {
-		Player player;
-		
-		Optional<Player> optionalPlayer= globalService.searchByName(name);
-		if(optionalPlayer.isPresent()) ;
-		player= optionalPlayer.get();
-		
-		Game game = new Game();
-		game.setPlayerName(player.getName());
-		player.rollDices(game);
-		globalService.save(game);
-		
-		List<Game> games = globalService.getGamesByPlayer(player.getName());
-		
-		return ResponseEntity.ok(games);
-}
-	//Muestra las jugadas de un jugador
-	@GetMapping("/players/{name}/games/")
-	public  ResponseEntity<List<Game>>getPlayerRolls( @PathVariable String name) {
-		
-		Player player;
-		Optional<Player> optionalPlayer= globalService.searchByName(name);
-		if(optionalPlayer.isPresent());
-		player= optionalPlayer.get();
-		
-		List<Game> games = globalService.getGamesByPlayer(player.getName());
-			
-		return ResponseEntity.ok(games);
-	}
-	//Muestra el ranking de jugadores
-	@GetMapping("/players/ranking")
-	public ResponseEntity<ArrayList<Player>> getRanking() {
-		ArrayList<Player>players= globalService.getPlayers();
-		globalService.calculateRanking(players);
-		
-		return ResponseEntity.ok(players);
-	}
-	//Muestra a todos los jugadores
-	@GetMapping("/players/")
-	public ResponseEntity<List<Player>> getPlayersInfo() {
-		List<Player>players= new ArrayList<Player>();
-		players= globalService.getPlayers();
-
-		return ResponseEntity.ok(players);
-	}
-	//Muestra al jugador con menor winRate (índice de victorias)
-	@GetMapping("/players/ranking/loser")
-	public ResponseEntity<Player> getLoser() {
-		Player player = globalService.getLoser();
-
-//		int timesRolled=globalService.countGamesPlayed(player);
-//		int timesWon=globalService.countWins(player);
-
-			return	ResponseEntity.ok(player)	;
-	}
-	//Muestra al jugador con mayor winRate (índice de victorias)
-	@GetMapping("/players/ranking/winner")
-	public ResponseEntity<Player> getWinner() {
-		Player player = globalService.getWinner();
-
-			return	ResponseEntity.ok(player)	;
-	}
-	//Borra las tiradas de un jugador
-	@GetMapping("/players/{name}/games")
-	public ResponseEntity<Player> deleteRolls(@PathVariable String name) {
-		Optional<Player> optionalPlayer= globalService.searchByName(name);
-		Player player = optionalPlayer.get();
-		List<Game> games = globalService.getGamesByPlayer(player.getName());
-		globalService.deleteAllPlayerGames( games);
-
-			return	ResponseEntity.ok(player)	;
-	}
 	
 	
 	@Bean

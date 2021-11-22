@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jocdaus.controller.GameController;
 @Entity
 @Table(name="players")
@@ -29,16 +30,19 @@ public class Player {
 	private String name;
 	
 	@OneToMany(mappedBy="player")
+	@JsonIgnore
 	private List<Dice> dices= new ArrayList<Dice>();
 	
 	
 	@OneToMany(targetEntity=Game.class)
+	@JsonIgnore
 	private List<Game> gamesPlayed;
 	
 	@Column
 	private double winRate;
 	
 	@OneToMany(mappedBy = "player")
+	@JsonIgnore
 	private List<Roll> rolls;
 	
 	
@@ -151,7 +155,7 @@ public class Player {
 				+ ", dices=" + dices + ", gamesPlayed=" + gamesPlayed + ", winRate=" + winRate + ", rolls=" + rolls
 				+ "]";
 	}
-	public  int rollDices() {
+	public  int rollDices(Game game) {
 		// Definimos una partida actual que elabora toda la lógica del programa y le añadimos este jugador
 		//mediante "this". El método lanza ambos dados, si el resultado de la suma es 7, añadimos ganador,
 		// de lo contrario, perdedor. Además, añadimos la partida a la lista de partidas del jugador y

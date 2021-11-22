@@ -15,6 +15,15 @@ class IndexManager implements InitializingBean {
    
     @Override
     public void afterPropertiesSet() {
-        mongoTemplate.dropCollection("games");
+    	if(mongoTemplate.collectionExists("users")) {
+    		mongoTemplate.dropCollection("users");
+//    		mongoTemplate.indexOps("users").dropIndex("username");
+    	}
+    	if(mongoTemplate.collectionExists("games")) {
+    		mongoTemplate.dropCollection("games");
+    	}
+    	
+       
+        
     }
 }

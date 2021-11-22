@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jocdaus.models.Dice;
 import com.jocdaus.models.Player;
 import com.jocdaus.repositories.PlayerRepository;
 
@@ -16,6 +17,8 @@ public class PlayerService {
 	@Autowired
 	PlayerRepository db;
 
+	@Autowired
+	DiceService diceService;
 	
 	public void createPlayer(Player player) {
 		// TODO Auto-generated method stub
@@ -69,6 +72,24 @@ public class PlayerService {
 			p.setWinRate(winRate);
 			this.update(p);
 		}
+	}
+
+	public Player savePlayer(Player player) {
+		return this.db.save(player);
+	}
+	
+	public Player createNewPlayer(Player player) {
+		Player playerToSave = new Player(player.getName(), player.getPassword());
+  		this.savePlayer(playerToSave);
+  		Dice dice1= new Dice(playerToSave);
+		Dice dice2= new Dice(playerToSave);
+		ArrayList<Dice> dices= new ArrayList<Dice>();
+		dices.add(dice1);
+		dices.add(dice2);
+		diceService.createDice(dice1);
+		diceService.createDice(dice2);
+		playerToSave.setDices(dices);
+  		return this.savePlayer(playerToSave);
 	}
 
 }

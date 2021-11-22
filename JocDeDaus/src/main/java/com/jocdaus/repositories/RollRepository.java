@@ -11,7 +11,7 @@ import com.jocdaus.models.Roll;
 @Repository
 public interface RollRepository extends JpaRepository<Roll, Integer> {
 
-	@Query(value = "SELECT * FROM ROLLS WHERE player_id = ?1", nativeQuery = true)
+	@Query(value = "SELECT id, player_id, game_id, resultdice1, resultdice2, result FROM ROLLS WHERE player_id = ?1", nativeQuery = true)
 	List<Roll> getRollsByPlayerId(Integer id);
 	
 	@Query(value="SELECT COUNT(id) FROM Rolls WHERE player_id = ?1", nativeQuery = true)

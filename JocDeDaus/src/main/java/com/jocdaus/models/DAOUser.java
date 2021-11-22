@@ -1,17 +1,18 @@
-package com.juegomongo.jwt;
+package com.jocdaus.models;
 
 import javax.persistence.*;
 
-
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="users")
+@Entity
+@Table(name="users")
 public class DAOUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
-	
+	private int id;
+	@Column(columnDefinition = "varchar(255)", unique=true)
 	private String username;
 	
 	

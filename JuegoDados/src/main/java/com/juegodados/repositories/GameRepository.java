@@ -25,6 +25,8 @@ public interface GameRepository extends MongoRepository<Game, String> {
 
 	 @Query(value="{playerName:?0}", count=true) 
 	public int countGamesPlayed(String name);
+
+	
 	
 	
 }

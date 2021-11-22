@@ -1,6 +1,7 @@
-package com.juegomongo.jwt;
+package com.juegodados.services;
 
 import java.util.ArrayList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -10,7 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.juegomongo.jwt.*;
+import com.juegodados.documents.DAOUser;
+import com.juegodados.jwt.*;
+import com.juegodados.repositories.UserRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
