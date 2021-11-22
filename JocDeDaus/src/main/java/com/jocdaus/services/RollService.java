@@ -33,4 +33,9 @@ public class RollService {
 		// TODO Auto-generated method stub
 		return db.countTimesRolled(id);
 	}
+
+	public void deleteAllPlayerGamesById(int id) {
+		// TODO Auto-generated method stub
+		this.db.deleteAllPlayerGames(id);
+	}
 }

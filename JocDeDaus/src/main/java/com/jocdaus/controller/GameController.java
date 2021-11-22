@@ -205,36 +205,20 @@ public class GameController {
   		if(optionalPlayer.isPresent()) ;
   		player= optionalPlayer.get();
   		
-  		
   		Game game = new Game();
-//  		gameService.save(game);
   		game.setPlayer(player);
   		gameService.save(game);
   		
-  		
-  		
   		Roll roll = new Roll(game,player);
-  		
-//  		gameService.save(game);
-//  		gameService.save(game);
   		roll.rollDices();
-  		
   		rollService.save(roll);
-  		
-  		
-  		
+
   		return ResponseEntity.ok(roll);
   }
   	//Muestra las jugadas de un jugador
   	@GetMapping("/players/{id}/games/")
   	public  ResponseEntity<List<Roll>> getPlayerRolls( @PathVariable Integer id) {
   		
-  		Player player;
-  		Optional<Player> optionalPlayer= playerService.searchById(id);
-  		if(optionalPlayer.isPresent());
-  		player= optionalPlayer.get();
-  		
-//  		List<Game> games = gameService.getGamesByPlayer(player.getId());
   		List<Roll> games= rollService.getRollsByPlayerId(id);
   			
   		return ResponseEntity.ok(games);
@@ -260,9 +244,6 @@ public class GameController {
   	public ResponseEntity<Player> getLoser() {
   		Player player = playerService.getLoser();
 
-//  		int timesRolled=globalService.countGamesPlayed(player);
-//  		int timesWon=globalService.countWins(player);
-
   			return	ResponseEntity.ok(player)	;
   	}
   	//Muestra al jugador con mayor winRate (índice de victorias)
@@ -274,13 +255,11 @@ public class GameController {
   	}
   	//Borra las tiradas de un jugador
   	@DeleteMapping("/players/{id}/games")
-  	public ResponseEntity<Player> deleteRolls(@PathVariable Integer id) {
-  		Optional<Player> optionalPlayer= playerService.searchById(id);;
-  		Player player = optionalPlayer.get();
-  		List<Game> games = gameService.getGamesByPlayer(player.getId());
-  		gameService.deleteAll(games);
+  	public ResponseEntity<String> deleteRolls(@PathVariable Integer id) {
 
-  			return	ResponseEntity.ok(player)	;
+  		rollService.deleteAllPlayerGamesById(id);
+  		
+  			return	ResponseEntity.ok("Partidas eliminadas correctamente")	;
   	}
 	
 	

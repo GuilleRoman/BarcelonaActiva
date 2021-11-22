@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="rolls")
 public class Roll {
@@ -22,15 +24,13 @@ public class Roll {
 	
 	@OneToOne(targetEntity=Game.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="game_id", referencedColumnName = "id")
+	@JsonIgnore
 	private Game game;
 	
 	@OneToOne(targetEntity=Player.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="player_id", referencedColumnName = "id")
+	@JsonIgnore
 	private Player player;
-	
-//	@ManyToOne(targetEntity=Dice.class, cascade=CascadeType.ALL)
-//	@JoinColumn(name="dice_id", referencedColumnName = "id")
-//	private List<Dice> dices;
 	
 	@Column(columnDefinition = "integer not null default 0")
 	private int result;

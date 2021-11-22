@@ -23,7 +23,7 @@ public class Dice {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(targetEntity=Player.class)
+	@ManyToOne(targetEntity=Player.class )
 	@JoinColumn(name="player_id")
 	private Player player;
 	//era one to one
