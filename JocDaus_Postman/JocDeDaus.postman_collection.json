@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "95273225-be86-464e-9640-89ff1683ffc0",
+		"name": "JocDeDaus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Guille\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST autenticacion",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Guille\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo jugador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NjEzMDMsImlhdCI6MTYzNzUyNTMwM30.DhPvlCBlSM4x96aZA4qCuzscpFM48JucpEpTV8I4t8Y",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Guille\",\r\n    \"password\":\"1234\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lanzar dados",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NjEzMDMsImlhdCI6MTYzNzUyNTMwM30.DhPvlCBlSM4x96aZA4qCuzscpFM48JucpEpTV8I4t8Y",
+						"description": " ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/player/1/games/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"1",
+						"games",
+						""
+					],
+					"query": [
+						{
+							"key": "asda",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "asd",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "asd",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "asd",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "asd",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "sda",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "{name}",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ranking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTczNTksImlhdCI6MTYzNzUyMTM1OX0.m-EMaGKEaud5yzb24vVn_9QdufoKpIdll1ycUNHCDdc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/players/ranking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"ranking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET partidas de un jugador",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTczNTksImlhdCI6MTYzNzUyMTM1OX0.m-EMaGKEaud5yzb24vVn_9QdufoKpIdll1ycUNHCDdc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/players/1/games/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"1",
+						"games",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Winner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTA1MzgsImlhdCI6MTYzNzUxNDUzOH0.d2dv4xFmI1o3iV34WZXfR8p3UgdLGAt3rykYFb0Zvow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/players/ranking/winner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"ranking",
+						"winner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Loser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTA1MzgsImlhdCI6MTYzNzUxNDUzOH0.d2dv4xFmI1o3iV34WZXfR8p3UgdLGAt3rykYFb0Zvow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/players/ranking/loser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"ranking",
+						"loser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Todos los Jugadores",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTA1MzgsImlhdCI6MTYzNzUxNDUzOH0.d2dv4xFmI1o3iV34WZXfR8p3UgdLGAt3rykYFb0Zvow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/players/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar jugador",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTA1MzgsImlhdCI6MTYzNzUxNDUzOH0.d2dv4xFmI1o3iV34WZXfR8p3UgdLGAt3rykYFb0Zvow",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"619a7f4960d11f46b8b5962e\",\r\n    \"name\":\"Eufrasio\",\r\n    \"password\":\"cambiada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/players",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar partidas de un jugador",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHdWlsbGUiLCJleHAiOjE2Mzc1NTA1MzgsImlhdCI6MTYzNzUxNDUzOH0.d2dv4xFmI1o3iV34WZXfR8p3UgdLGAt3rykYFb0Zvow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/players/1/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"1",
+						"games"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
